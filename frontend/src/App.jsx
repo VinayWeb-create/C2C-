@@ -18,6 +18,7 @@ import UserDashboard     from './pages/UserDashboard';
 import ProviderDashboard from './pages/ProviderDashboard';
 import SupportPage       from './pages/SupportPage';
 import ForgotPassword    from './pages/ForgotPassword';
+import LearningPage      from './pages/LearningPage';
 
 const App = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ const App = () => {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:id" element={<ServiceDetailPage />} />
               <Route path="/support" element={<SupportPage />} />
+              <Route path="/learning" element={<LearningPage />} />
 
               {/* Protected — users */}
               <Route path="/book/:id" element={

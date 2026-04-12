@@ -33,6 +33,7 @@ const Navbar = () => {
   const navLinks = [
     { to: '/',         label: 'Home' },
     { to: '/services', label: 'Services' },
+    { to: '/learning', label: 'Learning Hub' },
   ];
 
   const dashboardPath = user?.role === 'provider' ? '/dashboard/provider' : '/dashboard/user';

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MagnifyingGlassIcon, MapPinIcon, SparklesIcon, ShieldCheckIcon, StarIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, MapPinIcon, SparklesIcon, ShieldCheckIcon, StarIcon, ArrowRightIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
 import api from '../api/axios';
 import ServiceCard from '../components/services/ServiceCard';
 import Loader from '../components/common/Loader';
@@ -175,6 +175,50 @@ const HomePage = () => {
                 </div>
                 <h3 className="font-bold text-xl text-gray-900 dark:text-white mb-3">{title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Learning Hub Promo ── */}
+      <section className="page-container py-20">
+        <div className="bg-primary-50 dark:bg-primary-900/10 rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 border border-primary-100 dark:border-primary-900/20">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-xs font-bold uppercase tracking-wider mb-6">
+              <AcademicCapIcon className="w-4 h-4" />
+              C2C Academy
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+              Master the Skills, <br />
+              <span className="text-primary-600">Own Your Career.</span>
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
+              Get access to curated roadmaps, video resources, and professional notes. 
+              Pass our assessment tests to earn a verified professional badge.
+            </p>
+            <button 
+              onClick={() => navigate('/learning')}
+              className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-2xl transition shadow-xl shadow-primary-600/20 inline-flex items-center gap-2"
+            >
+              Start Learning Now
+              <ArrowRightIcon className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="flex-1 grid grid-cols-2 gap-4">
+            {[
+              { label: 'Web Dev', icon: '💻', color: 'bg-blue-500' },
+              { label: 'Design', icon: '🎨', color: 'bg-pink-500' },
+              { label: 'Marketing', icon: '🚀', color: 'bg-amber-500' },
+              { label: 'Video', icon: '🎬', color: 'bg-purple-500' },
+            ].map((item, idx) => (
+              <div 
+                key={item.label}
+                className={`p-6 rounded-3xl ${item.color} text-white shadow-xl transform ${idx % 2 === 0 ? 'translate-y-4' : '-translate-y-4'} hover:scale-105 transition-transform cursor-pointer`}
+                onClick={() => navigate('/learning')}
+              >
+                <span className="text-3xl mb-4 block">{item.icon}</span>
+                <span className="font-bold">{item.label}</span>
               </div>
             ))}
           </div>
