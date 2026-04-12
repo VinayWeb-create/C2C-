@@ -169,7 +169,11 @@ const AdminDashboard = () => {
                         <h2 className="text-2xl font-black text-gray-900 dark:text-white">Financial Growth</h2>
                         <p className="text-sm text-gray-400">Monthly revenue trends throughout the year.</p>
                       </div>
-                      <select className="bg-gray-50 dark:bg-gray-800 border-none rounded-xl text-sm font-bold px-4 py-2">
+                      <select 
+                        id="year-selector"
+                        name="year-selector"
+                        className="bg-gray-50 dark:bg-gray-800 border-none rounded-xl text-sm font-bold px-4 py-2"
+                      >
                         <option>2024 (Current)</option>
                         <option>2023</option>
                       </select>
@@ -372,7 +376,13 @@ const AdminDashboard = () => {
                    <h2 className="text-2xl font-black text-gray-900 dark:text-white">Active Population (Clients)</h2>
                    <div className="relative">
                      <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                     <input type="text" placeholder="Search by name or email..." className="pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-800 border-none rounded-2xl text-sm" />
+                     <input 
+                       id="user-search"
+                       name="user-search"
+                       type="text" 
+                       placeholder="Search by name or email..." 
+                       className="pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-800 border-none rounded-2xl text-sm" 
+                     />
                    </div>
                 </div>
                 <div className="overflow-x-auto">

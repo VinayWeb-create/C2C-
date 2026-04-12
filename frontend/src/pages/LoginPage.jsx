@@ -27,7 +27,13 @@ const LoginPage = () => {
     if (!validate()) return;
     const result = await login(form.email, form.password);
     if (result.success) {
-      navigate(result.user.role === 'provider' ? '/dashboard/provider' : from, { replace: true });
+      if (result.user.role === 'admin') {
+        navigate('/dashboard/admin', { replace: true });
+      } else if (result.user.role === 'provider') {
+        navigate('/dashboard/provider', { replace: true });
+      } else {
+        navigate(from, { replace: true });
+      }
     }
   };
 
@@ -52,6 +58,8 @@ const LoginPage = () => {
                 Email address
               </label>
               <input
+                id="email"
+                name="email"
                 type="email"
                 autoComplete="email"
                 value={form.email}
@@ -69,6 +77,8 @@ const LoginPage = () => {
               </label>
               <div className="relative">
                 <input
+                  id="password"
+                  name="password"
                   type={showPwd ? 'text' : 'password'}
                   autoComplete="current-password"
                   value={form.password}
@@ -87,7 +97,12 @@ const LoginPage = () => {
               {errors.password && <p className="text-xs text-red-500 mt-1">{errors.password}</p>}
               <div className="flex items-center justify-between mt-2">
                 <label className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 cursor-pointer">
-                  <input type="checkbox" className="rounded text-primary-600 focus:ring-primary-500" />
+                  <input 
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox" 
+                    className="rounded text-primary-600 focus:ring-primary-500" 
+                  />
                   Remember me
                 </label>
                 <Link to="/forgot-password" size="sm" className="text-xs text-primary-600 dark:text-primary-400 hover:underline">
