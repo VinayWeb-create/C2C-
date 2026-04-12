@@ -44,6 +44,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+app.get('/', (req, res) => {
+  res.send('C2C — Campus to Corporate API is running...');
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
