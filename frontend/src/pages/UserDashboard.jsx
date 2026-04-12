@@ -1,328 +1,236 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
-  CalendarDaysIcon, StarIcon, ClockIcon, XMarkIcon,
-  ExclamationTriangleIcon, ChevronDownIcon, ChevronUpIcon,
-  MapPinIcon, CurrencyRupeeIcon, LockClosedIcon, LockOpenIcon,
-  QuestionMarkCircleIcon
+  CalendarDaysIcon, StarIcon, ClockIcon, 
+  AcademicCapIcon, TrophyIcon, PlayCircleIcon,
+  BriefcaseIcon, CheckBadgeIcon, ChartBarIcon,
+  ArrowRightIcon, VideoCameraIcon, MapIcon,
+  ShieldCheckIcon, BeakerIcon
 } from '@heroicons/react/24/outline';
 import api from '../api/axios';
 import Loader from '../components/common/Loader';
-import StarRating from '../components/common/StarRating';
-import { formatPrice, formatDate, STATUS_COLORS, CATEGORY_ICONS } from '../utils/helpers';
 import { useAuth } from '../context/AuthContext';
-import toast from 'react-hot-toast';
-
-const TABS = ['All', 'pending', 'confirmed', 'in_progress', 'completed', 'cancelled'];
-
-/* ── Inline Confirm Dialog ── */
-const ConfirmDialog = ({ open, title, message, onConfirm, onCancel, danger = true }) => {
-  if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-sm p-6 animate-[fadeSlideIn_0.2s_ease]">
-        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 mx-auto ${danger ? 'bg-red-100 dark:bg-red-900/30' : 'bg-amber-100 dark:bg-amber-900/30'}`}>
-          <ExclamationTriangleIcon className={`w-6 h-6 ${danger ? 'text-red-600' : 'text-amber-600'}`} />
-        </div>
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">{title}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-6">{message}</p>
-        <div className="flex gap-3">
-          <button onClick={onCancel} className="btn-secondary flex-1 justify-center">Keep it</button>
-          <button onClick={onConfirm} className={`flex-1 justify-center inline-flex items-center gap-2 px-5 py-2.5 text-white text-sm font-medium rounded-xl transition-all ${danger ? 'bg-red-600 hover:bg-red-700' : 'bg-amber-600 hover:bg-amber-700'}`}>
-            Yes, cancel
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-/* ── Booking Detail Expand ── */
-const BookingDetail = ({ booking: b }) => {
-  const revealed = ['confirmed', 'in_progress', 'completed'].includes(b.status);
-
-  return (
-    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-      {/* Service Address — hidden until provider accepts */}
-      <div className="space-y-2">
-        <p className="font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1.5">
-          {revealed
-            ? <LockOpenIcon className="w-3.5 h-3.5 text-green-500" />
-            : <LockClosedIcon className="w-3.5 h-3.5 text-amber-500" />
-          }
-          Service Address
-        </p>
-        {revealed ? (
-          <div className="flex items-start gap-2 text-gray-500 dark:text-gray-400">
-            <MapPinIcon className="w-4 h-4 mt-0.5 flex-shrink-0" />
-            <span>{b.address?.street && `${b.address.street}, `}{b.address?.city}, {b.address?.state} - {b.address?.pincode}</span>
-          </div>
-        ) : (
-          <div className="rounded-xl border border-dashed border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/10 px-3 py-2">
-            <p className="text-xs text-amber-700 dark:text-amber-400 font-medium">Hidden until provider accepts</p>
-            <p className="text-[10px] text-gray-400 mt-0.5">Your booking is pending. Address is shared once accepted.</p>
-          </div>
-        )}
-      </div>
-
-      {/* Payment Details */}
-      <div className="space-y-2">
-        <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">Payment Details</p>
-        <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-          <CurrencyRupeeIcon className="w-4 h-4 flex-shrink-0" />
-          <span>Base: {formatPrice(b.pricing?.baseAmount)} + GST: {formatPrice(b.pricing?.taxAmount)}</span>
-        </div>
-        <p className="text-gray-500 dark:text-gray-400 text-xs">Method: <span className="uppercase font-medium">{b.pricing?.paymentMethod}</span></p>
-      </div>
-
-      {b.notes && (
-        <div className="sm:col-span-2">
-          <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</p>
-          <p className="text-gray-500 dark:text-gray-400 italic">"{b.notes}"</p>
-        </div>
-      )}
-    </div>
-  );
-};
+import { motion, AnimatePresence } from 'framer-motion';
 
 const UserDashboard = () => {
   const { user } = useAuth();
-  const [tab,         setTab]         = useState('All');
-  const [bookings,    setBookings]    = useState([]);
-  const [allBookings, setAllBookings] = useState([]);
-  const [loading,     setLoading]     = useState(true);
-  const [review,      setReview]      = useState({ bookingId: '', rating: 0, comment: '' });
-  const [showReview,  setShowReview]  = useState(null);
-  const [expandedId,  setExpandedId]  = useState(null);
-  const [confirmId,   setConfirmId]   = useState(null);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [activeDomain, setActiveDomain] = useState('Web Development');
 
-  const fetchBookings = useCallback(async () => {
-    setLoading(true);
-    try {
-      const { data } = await api.get('/bookings/my');
-      setAllBookings(data.bookings);
-    } finally {
-      setLoading(false);
-    }
+  // Stats calculation based on user data
+  const stats = {
+    badges: user?.badges?.length || 0,
+    tests: user?.testResults?.length || 0,
+    // Mocking video/roadmap data as it's not in the DB yet, but can be simulated for UI
+    videos: Math.floor((user?.testResults?.length || 0) * 2.5), 
+    roadmaps: user?.badges?.length ? 1 : 0,
+    projects: user?.badges?.length || 0
+  };
+
+  useEffect(() => {
+    // Simulated load to fetch latest user details
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => { fetchBookings(); }, [fetchBookings]);
+  const hasProfessionalBadge = user?.badges?.some(b => b.name.includes('Professional'));
 
-  /* Filter by tab on client side so stats stay accurate */
-  useEffect(() => {
-    setBookings(tab === 'All' ? allBookings : allBookings.filter((b) => b.status === tab));
-  }, [tab, allBookings]);
-
-  const cancelBooking = async () => {
-    try {
-      await api.put(`/bookings/${confirmId}/status`, { status: 'cancelled', cancellationReason: 'Cancelled by user' });
-      toast.success('Booking cancelled');
-      setConfirmId(null);
-      fetchBookings();
-    } catch {
-      toast.error('Failed to cancel');
-      setConfirmId(null);
-    }
-  };
-
-  const submitReview = async () => {
-    if (!review.rating)         { toast.error('Please select a rating'); return; }
-    if (!review.comment.trim()) { toast.error('Please write a comment'); return; }
-    try {
-      await api.post('/reviews', { bookingId: review.bookingId, rating: review.rating, comment: review.comment });
-      toast.success('Review submitted! ⭐');
-      setShowReview(null);
-      setReview({ bookingId: '', rating: 0, comment: '' });
-      fetchBookings();
-    } catch (err) { toast.error(err.response?.data?.message || 'Failed'); }
-  };
-
-  const stats = {
-    total:     allBookings.length,
-    completed: allBookings.filter((b) => b.status === 'completed').length,
-    pending:   allBookings.filter((b) => b.status === 'pending').length,
-    spent:     allBookings.filter((b) => b.status === 'completed').reduce((s, b) => s + b.pricing.totalAmount, 0),
-  };
+  if (loading) return <div className="min-h-screen flex items-center justify-center dark:bg-gray-950"><Loader size="lg" /></div>;
 
   return (
-    <div className="page-container page-enter">
-      {/* Help Banner */}
-      <div className="mb-6 card bg-indigo-600 p-4 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500" />
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4 text-white">
-            <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-              <QuestionMarkCircleIcon className="w-6 h-6" />
+    <div className="page-container page-enter pb-20">
+      
+      {/* ── Profile Header with Badge ── */}
+      <div className="mb-10 flex flex-col md:flex-row items-center justify-between gap-8 p-10 bg-white dark:bg-gray-900 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-600/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+        
+        <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
+          <div className="relative">
+            <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-primary-500 to-indigo-600 flex items-center justify-center text-white text-3xl font-black shadow-xl">
+              {user?.name?.[0]}
             </div>
-            <div>
-              <p className="font-bold">Need assistance with your booking?</p>
-              <p className="text-white/70 text-sm">Check our help center for FAQs and tips on how to get the best from providers.</p>
-            </div>
+            {hasProfessionalBadge && (
+              <div className="absolute -top-2 -right-2 bg-amber-500 text-white p-1.5 rounded-xl border-4 border-white dark:border-gray-900 shadow-lg animate-bounce">
+                <TrophyIcon className="w-5 h-5" />
+              </div>
+            )}
           </div>
-          <Link to="/support" className="px-6 py-2.5 bg-white text-indigo-600 font-bold rounded-xl hover:bg-gray-50 transition shadow-lg whitespace-nowrap">
-            Visit Help Center
-          </Link>
-        </div>
-      </div>
-      <ConfirmDialog
-        open={!!confirmId}
-        title="Cancel Booking?"
-        message="This will cancel your booking. The provider will be notified. This cannot be undone."
-        onConfirm={cancelBooking}
-        onCancel={() => setConfirmId(null)}
-      />
-
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="section-title">My Dashboard</h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Welcome back, {user?.name?.split(' ')[0]}! 👋</p>
-        </div>
-        <Link to="/services" className="btn-primary text-sm">Browse Services</Link>
-      </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        {[
-          { label: 'Total Bookings', value: stats.total,              icon: CalendarDaysIcon, color: 'text-primary-600',  bg: 'bg-primary-50 dark:bg-primary-900/20' },
-          { label: 'Completed',      value: stats.completed,          icon: StarIcon,         color: 'text-green-600',    bg: 'bg-green-50 dark:bg-green-900/20'   },
-          { label: 'Pending',        value: stats.pending,            icon: ClockIcon,        color: 'text-amber-600',    bg: 'bg-amber-50 dark:bg-amber-900/20'   },
-          { label: 'Total Spent',    value: formatPrice(stats.spent), icon: null,             color: 'text-indigo-600',   bg: 'bg-indigo-50 dark:bg-indigo-900/20' },
-        ].map(({ label, value, icon: Icon, color, bg }) => (
-          <div key={label} className="card p-4 hover:shadow-card-hover transition-shadow">
-            <div className={`w-8 h-8 rounded-xl ${bg} flex items-center justify-center mb-3`}>
-              {Icon && <Icon className={`w-4 h-4 ${color}`} />}
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+              <h1 className="text-3xl font-black text-gray-900 dark:text-white">Hi, {user?.name?.split(' ')[0]}!</h1>
+              {hasProfessionalBadge && <CheckBadgeIcon className="w-6 h-6 text-primary-500" />}
             </div>
-            <p className={`text-2xl font-bold ${color}`}>{value}</p>
-            <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 block">{label}</span>
+            <p className="text-gray-500 dark:text-gray-400 font-medium">
+              {hasProfessionalBadge 
+                ? 'Authorized Professional Provider' 
+                : 'Student Advocate at C2C Academy'}
+            </p>
           </div>
-        ))}
-      </div>
+        </div>
 
-      {/* Tabs */}
-      <div className="flex gap-1 mb-6 overflow-x-auto pb-1">
-        {TABS.map((t) => (
-          <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition ${
-              tab === t
-                ? 'bg-primary-600 text-white shadow-sm'
-                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750'
-            }`}>
-            {t === 'All' ? `All (${stats.total})` : t.replace('_', ' ')}
+        <div className="flex flex-wrap justify-center gap-3 relative z-10">
+          <button onClick={() => navigate('/learning')} className="btn-primary py-3 px-8 rounded-2xl flex items-center gap-2">
+            <AcademicCapIcon className="w-5 h-5" /> Continue Learning
           </button>
-        ))}
+          {hasProfessionalBadge ? (
+            <button onClick={() => navigate('/provider-dashboard')} className="btn-secondary py-3 px-8 rounded-2xl flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 text-amber-600 border-amber-200">
+              <ShieldCheckIcon className="w-5 h-5" /> Switch to Provider
+            </button>
+          ) : (
+            <div className="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-2xl text-xs font-black text-gray-400 uppercase tracking-widest flex items-center gap-2">
+               <ClockIcon className="w-4 h-4" /> Provider Badge Locked
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Bookings list */}
-      {loading ? (
-        <div className="flex justify-center py-16"><Loader size="lg" /></div>
-      ) : bookings.length === 0 ? (
-        <div className="text-center py-20 card">
-          <p className="text-5xl mb-4">📭</p>
-          <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-2">
-            {tab === 'All' ? 'No bookings yet' : `No ${tab.replace('_', ' ')} bookings`}
-          </h3>
-          <p className="text-gray-400 text-sm mb-5">
-            {tab === 'All' ? 'Find and book local services around you' : 'Switch tabs to see other bookings'}
-          </p>
-          {tab === 'All' && <Link to="/services" className="btn-primary">Browse Services</Link>}
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {bookings.map((b) => (
-            <div key={b._id} className="card p-5 hover:shadow-card-hover transition-shadow">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                {/* Service icon */}
-                <div className="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center text-3xl flex-shrink-0">
-                  {CATEGORY_ICONS[b.service?.category] || '🛠️'}
-                </div>
+      {/* ── Learning Merit Stats ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+        {[
+          { label: 'Videos Learned', value: stats.videos, icon: PlayCircleIcon, color: 'text-indigo-600', bg: 'bg-indigo-50 dark:bg-indigo-900/20' },
+          { label: 'Roadmaps Started', value: stats.roadmaps, icon: MapIcon, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+          { label: 'Projects Done', value: stats.projects, icon: BriefcaseIcon, color: 'text-purple-600', bg: 'bg-purple-50 dark:bg-purple-900/20' },
+          { label: 'Practice Tests', value: stats.tests, icon: BeakerIcon, color: 'text-rose-600', bg: 'bg-rose-50 dark:bg-rose-900/20' },
+          { label: 'Merit Score', value: stats.badges > 0 ? '100%' : '0%', icon: TrophyIcon, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+        ].map((card) => {
+          const Icon = card.icon;
+          return (
+            <motion.div whileHover={{ y: -5 }} key={card.label} className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm">
+              <div className={`w-10 h-10 rounded-xl ${card.bg} ${card.color} flex items-center justify-center mb-4`}>
+                <Icon className="w-6 h-6" />
+              </div>
+              <p className={`text-2xl font-black ${card.color}`}>{card.value}</p>
+              <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mt-1">{card.label}</p>
+            </motion.div>
+          );
+        })}
+      </div>
 
-                {/* Details */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{b.service?.title}</h3>
-                      <p className="text-xs text-gray-400">{b.service?.category} · {b.provider?.name}</p>
-                    </div>
-                    <span className={`badge flex-shrink-0 ${STATUS_COLORS[b.status]}`}>
-                      {b.status.replace('_', ' ')}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-3 mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    <span>📅 {formatDate(b.bookingDate)}</span>
-                    <span>⏰ {b.timeSlot?.start}–{b.timeSlot?.end}</span>
-                    <span>💰 {formatPrice(b.pricing?.totalAmount)}</span>
-                    <span>💳 {b.pricing?.paymentMethod?.toUpperCase()}</span>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  {b.status === 'pending' && (
-                    <button
-                      onClick={() => setConfirmId(b._id)}
-                      className="btn-danger text-xs py-1.5 px-3"
-                    >
-                      Cancel
-                    </button>
-                  )}
-                  {b.status === 'completed' && !b.reviewSubmitted && (
-                    <button
-                      onClick={() => { setShowReview(b._id); setReview({ bookingId: b._id, rating: 0, comment: '' }); }}
-                      className="btn-primary text-xs py-1.5 px-3"
-                    >
-                      ⭐ Review
-                    </button>
-                  )}
-                  {b.status === 'completed' && b.reviewSubmitted && (
-                    <span className="text-xs text-green-600 font-medium flex items-center gap-1">✓ Reviewed</span>
-                  )}
-                  {/* Expand toggle */}
-                  <button
-                    onClick={() => setExpandedId(expandedId === b._id ? null : b._id)}
-                    className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-                    title="View details"
-                  >
-                    {expandedId === b._id
-                      ? <ChevronUpIcon className="w-4 h-4" />
-                      : <ChevronDownIcon className="w-4 h-4" />
-                    }
-                  </button>
-                </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        
+        {/* ── Learning Journey Progress ── */}
+        <div className="lg:col-span-2 space-y-8">
+           <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800">
+              <div className="flex items-center justify-between mb-8">
+                 <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-widest flex items-center gap-3">
+                   <ChartBarIcon className="w-6 h-6 text-primary-600" /> Current Learning Journey
+                 </h2>
+                 <select className="bg-gray-50 dark:bg-gray-800 border-none rounded-xl text-xs font-bold py-2 px-4">
+                    <option>Web Development</option>
+                    <option>Graphic Design</option>
+                 </select>
               </div>
 
-              {/* Expanded detail */}
-              {expandedId === b._id && <BookingDetail booking={b} />}
-
-              {/* Review form */}
-              {showReview === b._id && (
-                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">Write a review</p>
-                  <div className="space-y-3">
-                    <StarRating
-                      rating={review.rating}
-                      size="lg"
-                      interactive
-                      onChange={(r) => setReview({ ...review, rating: r })}
-                    />
-                    <textarea
-                      rows={3}
-                      value={review.comment}
-                      onChange={(e) => setReview({ ...review, comment: e.target.value })}
-                      placeholder="Share your experience..."
-                      className="input-field resize-none text-sm"
-                    />
-                    <div className="flex gap-2">
-                      <button onClick={submitReview} className="btn-primary text-sm py-2">Submit Review</button>
-                      <button onClick={() => setShowReview(null)} className="btn-secondary text-sm py-2">Cancel</button>
+              <div className="space-y-10">
+                 <div>
+                    <div className="flex justify-between items-end mb-4">
+                       <div>
+                          <p className="text-sm font-black text-gray-900 dark:text-white">Academy Progression</p>
+                          <p className="text-xs text-gray-400">Roadmap to Professional Badge</p>
+                       </div>
+                       <span className="text-xl font-black text-primary-600">{hasProfessionalBadge ? '100%' : '40%'}</span>
                     </div>
-                  </div>
+                    <div className="w-full h-4 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                       <motion.div 
+                         initial={{ width: 0 }}
+                         animate={{ width: hasProfessionalBadge ? '100%' : '40%' }}
+                         className="h-full bg-gradient-to-r from-primary-600 to-indigo-500 shadow-lg shadow-primary-600/20"
+                       />
+                    </div>
+                 </div>
+
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                      { title: 'Foundations', status: 'Completed', icon: CheckBadgeIcon, color: 'text-green-500' },
+                      { title: 'Project Work', status: hasProfessionalBadge ? 'Completed' : 'Started', icon: BriefcaseIcon, color: hasProfessionalBadge ? 'text-green-500' : 'text-blue-500' },
+                      { title: 'Merit Test', status: hasProfessionalBadge ? '100% Score' : 'Locked', icon: TrophyIcon, color: hasProfessionalBadge ? 'text-amber-500' : 'text-gray-300' },
+                      { title: 'Provider Badge', status: hasProfessionalBadge ? 'Earned' : 'Locked', icon: ShieldCheckIcon, color: hasProfessionalBadge ? 'text-primary-500' : 'text-gray-300' },
+                    ].map((step) => (
+                      <div key={step.title} className="p-5 bg-gray-50 dark:bg-gray-800/50 rounded-[1.5rem] border border-gray-100 dark:border-gray-750 flex items-center justify-between">
+                         <div className="flex items-center gap-3">
+                            <step.icon className={`w-5 h-5 ${step.color}`} />
+                            <span className="text-sm font-bold text-gray-700 dark:text-gray-200">{step.title}</span>
+                         </div>
+                         <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{step.status}</span>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+           </div>
+
+           {/* ── Submitted Projects ── */}
+           <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800">
+              <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-widest mb-8 flex items-center gap-3">
+                 <BriefcaseIcon className="w-6 h-6 text-primary-600" /> Project Portfolio
+              </h2>
+              
+              {user?.badges?.length > 0 ? (
+                <div className="space-y-4">
+                   {user.badges.map((badge, idx) => (
+                      <div key={idx} className="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-[2rem] border border-gray-100 dark:border-gray-750 flex items-center justify-between group hover:border-primary-500 transition-all">
+                         <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-2xl flex items-center justify-center shadow-sm">
+                               <TrophyIcon className="w-6 h-6 text-amber-500" />
+                            </div>
+                            <div>
+                               <h4 className="font-bold text-gray-900 dark:text-white">{badge.name}</h4>
+                               <p className="text-xs text-gray-400">Awarded on {new Date(badge.issuedAt).toLocaleDateString()}</p>
+                            </div>
+                         </div>
+                         <div className="text-right">
+                            <span className="px-4 py-1.5 bg-green-100 text-green-700 rounded-full text-[10px] font-black uppercase tracking-widest">Admin Approved</span>
+                         </div>
+                      </div>
+                   ))}
+                </div>
+              ) : (
+                <div className="py-12 text-center">
+                   <p className="text-gray-400 italic">No projects submitted for review yet.</p>
+                   <button onClick={() => navigate('/learning')} className="mt-4 text-primary-600 font-bold text-sm flex items-center gap-2 mx-auto hover:underline">
+                      Go to Academy <ArrowRightIcon className="w-4 h-4" />
+                   </button>
                 </div>
               )}
-            </div>
-          ))}
+           </div>
         </div>
-      )}
+
+        {/* ── Sidebar: Tests & Certificates ── */}
+        <div className="space-y-8">
+           <div className="bg-gradient-to-br from-indigo-600 to-primary-700 rounded-[2.5rem] p-10 text-white shadow-xl shadow-primary-600/20">
+              <h3 className="text-xl font-black mb-6 flex items-center gap-3">
+                 <VideoCameraIcon className="w-6 h-6" /> Quick Actions
+              </h3>
+              <div className="space-y-4">
+                 <button onClick={() => navigate('/learning')} className="w-full py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-left px-6 text-sm font-bold hover:bg-white/20 transition">
+                    🎥 Last Watched: Video #4
+                 </button>
+                 <button onClick={() => navigate('/learning')} className="w-full py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-left px-6 text-sm font-bold hover:bg-white/20 transition">
+                    📝 View Roadmap Docs
+                 </button>
+              </div>
+           </div>
+
+           <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-10 border border-gray-100 dark:border-gray-800">
+              <h3 className="text-lg font-black text-gray-900 dark:text-white mb-6 uppercase tracking-widest">Merit Tests</h3>
+              <div className="space-y-6">
+                 {user?.testResults?.length > 0 ? user.testResults.map((result, idx) => (
+                    <div key={idx} className="flex items-center justify-between">
+                       <div className="flex items-center gap-3">
+                          <CheckBadgeIcon className="w-5 h-5 text-green-500" />
+                          <span className="text-sm font-bold text-gray-700 dark:text-gray-200">Test #{result.testId}</span>
+                       </div>
+                       <span className="font-black text-primary-600 text-sm">{result.score}%</span>
+                    </div>
+                 )) : (
+                    <p className="text-xs text-gray-400">Complete sessions to unlock tests.</p>
+                 )}
+              </div>
+           </div>
+        </div>
+
+      </div>
+
     </div>
   );
 };
