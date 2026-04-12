@@ -1,15 +1,30 @@
 import { Link } from 'react-router-dom';
-import { BriefcaseIcon, ClockIcon, CurrencyRupeeIcon, TrophyIcon } from '@heroicons/react/24/outline';
+import { BriefcaseIcon, ClockIcon, LockClosedIcon, TrophyIcon } from '@heroicons/react/24/outline';
 import { formatPrice, CATEGORY_ICONS } from '../../utils/helpers';
+import { useAuth } from '../../context/AuthContext';
 
 const ProjectCard = ({ project }) => {
+  const { user } = useAuth();
   const {
     _id, title, category, budget, description,
     skillsRequired, status, postedBy, createdAt
   } = project;
 
+  // Check if provider has the badge for THIS specific category
+  const hasRequiredBadge = user?.badges?.some(b => b.role === category) || user?.role === 'admin';
+
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition-all group flex flex-col justify-between h-full">
+    <div className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition-all group flex flex-col justify-between h-full relative">
+      
+      {!hasRequiredBadge && (
+        <div className="absolute top-4 left-4 z-10">
+           <div className="p-2 bg-amber-50 dark:bg-amber-900/40 rounded-xl border border-amber-200 text-amber-600 shadow-sm flex items-center gap-2" title="Merit Badge Required">
+              <LockClosedIcon className="w-4 h-4" />
+              <span className="text-[10px] font-black uppercase tracking-widest">Badge Locked</span>
+           </div>
+        </div>
+      )}
+
       <div>
         <div className="flex justify-between items-start mb-6">
           <div className="w-14 h-14 rounded-2xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 text-3xl shadow-inner">
@@ -48,12 +63,21 @@ const ProjectCard = ({ project }) => {
           Post Date: {new Date(createdAt).toLocaleDateString()}
         </div>
         
-        <Link 
-          to={`/dashboard/provider`} // Redirecting to dashboard to apply
-          className="px-6 py-2.5 bg-primary-600 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-primary-600/20 hover:scale-105 transition active:scale-95"
-        >
-          View & Apply
-        </Link>
+        {hasRequiredBadge ? (
+          <Link 
+            to={`/dashboard/provider`} // Redirecting to dashboard to apply
+            className="px-6 py-2.5 bg-primary-600 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-primary-600/20 hover:scale-105 transition active:scale-95"
+          >
+            Apply Now
+          </Link>
+        ) : (
+          <button 
+            disabled
+            className="px-6 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-400 rounded-2xl text-xs font-black uppercase tracking-widest cursor-not-allowed opacity-60"
+          >
+            Locked
+          </button>
+        )}
       </div>
     </div>
   );

@@ -32,7 +32,9 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/',         label: 'Home' },
-    { to: '/projects', label: 'Marketplace' },
+    ...(user?.role === 'provider' || user?.role === 'admin' 
+      ? [{ to: '/projects', label: 'Marketplace' }] 
+      : []),
     { to: '/learning', label: 'Learning Hub' },
   ];
 
