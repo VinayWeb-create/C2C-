@@ -15,12 +15,38 @@ export const getAdminStats = asyncHandler(async (req, res) => {
     { $group: { _id: null, total: { $sum: '$pricing.totalAmount' } } }
   ]);
 
+  const bookingStatusData = await Booking.aggregate([
+    { $group: { _id: '$status', count: { $sum: 1 } } }
+  ]);
+
+  const categoryDistribution = await Service.aggregate([
+    { $group: { _id: '$category', count: { $sum: 1 } } },
+    { $sort: { count: -1 } },
+    { $limit: 8 }
+  ]);
+
+  const topProviders = await Booking.aggregate([
+    { $match: { status: 'completed' } },
+    { $group: { _id: '$provider', totalEarnings: { $sum: '$pricing.totalAmount' }, count: { $sum: 1 } } },
+    { $sort: { totalEarnings: -1 } },
+    { $limit: 5 },
+    {
+      $lookup: {
+        from: 'users',
+        localField: '_id',
+        foreignField: '_id',
+        as: 'details'
+      }
+    },
+    { $unwind: '$details' }
+  ]);
+
   const recentBookings = await Booking.find()
     .sort({ createdAt: -1 })
-    .limit(5)
-    .populate('user', 'name email')
-    .populate('provider', 'name email')
-    .populate('service', 'title');
+    .limit(10)
+    .populate('user', 'name email avatar')
+    .populate('provider', 'name email avatar')
+    .populate('service', 'title category');
 
   res.json({
     success: true,
@@ -29,6 +55,9 @@ export const getAdminStats = asyncHandler(async (req, res) => {
       providers: providerCount,
       earnings: totalEarnings[0]?.total || 0,
     },
+    bookingStatusData,
+    categoryDistribution,
+    topProviders,
     recentBookings
   });
 });
