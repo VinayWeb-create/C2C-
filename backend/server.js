@@ -12,8 +12,9 @@ import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import authRoutes from './routes/authRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
-import reviewRoutes from './routes/reviewRoutes.js';
-import aiRoutes from './routes/aiRoutes.js';
+import adminRoutes   from './routes/adminRoutes.js';
+import aiRoutes      from './routes/aiRoutes.js';
+import reviewRoutes   from './routes/reviewRoutes.js';
 
 connectDB();
 
@@ -54,6 +55,7 @@ app.use('/api', apiLimiter);
 app.use('/api/auth',     authRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/admin',    adminRoutes);
 app.use('/api/reviews',  reviewRoutes);
 app.use('/api/ai',       aiRoutes);
 

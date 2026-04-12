@@ -36,7 +36,9 @@ const Navbar = () => {
     { to: '/learning', label: 'Learning Hub' },
   ];
 
-  const dashboardPath = user?.role === 'provider' ? '/dashboard/provider' : '/dashboard/user';
+  let dashboardPath = '/dashboard/user';
+  if (user?.role === 'provider') dashboardPath = '/dashboard/provider';
+  if (user?.role === 'admin')    dashboardPath = '/dashboard/admin';
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">

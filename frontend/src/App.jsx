@@ -19,6 +19,7 @@ import ProviderDashboard from './pages/ProviderDashboard';
 import SupportPage       from './pages/SupportPage';
 import ForgotPassword    from './pages/ForgotPassword';
 import LearningPage      from './pages/LearningPage';
+import AdminDashboard     from './pages/AdminDashboard';
 
 const App = () => {
   const location = useLocation();
@@ -64,6 +65,12 @@ const App = () => {
               <Route path="/dashboard/provider" element={
                 <ProtectedRoute roles={['provider', 'admin']}>
                   <ProviderDashboard />
+                </ProtectedRoute>
+              } />
+
+              <Route path="/dashboard/admin" element={
+                <ProtectedRoute roles={['admin']}>
+                  <AdminDashboard />
                 </ProtectedRoute>
               } />
 
