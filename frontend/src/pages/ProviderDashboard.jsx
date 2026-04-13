@@ -9,7 +9,7 @@ import {
   QuestionMarkCircleIcon, LightBulbIcon,
   AcademicCapIcon, WrenchScrewdriverIcon, IdentificationIcon,
   LinkIcon, InformationCircleIcon, ClockIcon, BriefcaseIcon, TrophyIcon,
-  PaperAirplaneIcon, MagnifyingGlassIcon
+  PaperAirplaneIcon, MagnifyingGlassIcon, ShieldCheckIcon
 } from '@heroicons/react/24/outline';
 import api from '../api/axios';
 import Loader from '../components/common/Loader';
