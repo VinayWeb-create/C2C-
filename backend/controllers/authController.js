@@ -162,15 +162,9 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     
     res.json({ success: true, message: 'OTP sent to your registered email.' });
   } catch (err) {
-    console.error('Forgot Password Error (Fallback Triggered):', err);
-    
-    // Safety Fallback: If email fails, we return the OTP in the message so the user can continue
-    // In production this is a security risk, but here it prevents a server crash (502) and unblocks you.
-    res.json({ 
-      success: true, 
-      message: 'OTP generated (Email service unavailable).',
-      debugOTP: otp // Providing OTP directly to unblock the user
-    });
+    console.error('Forgot Password Error:', err);
+    res.status(500);
+    throw new Error('Could not send the password reset email. Please try again later.');
   }
 });
 

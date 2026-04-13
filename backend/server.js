@@ -21,16 +21,22 @@ connectDB();
 
 const app = express();
 
-app.use(helmet());
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://c2-c-sable.vercel.app',
-];
-
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({
-  origin: true,
+  origin: [
+    'http://localhost:5173',
+    'https://c2-c-sable.vercel.app',
+    'https://c2-5ltonl5v1-vinay-avalas-projects.vercel.app'
+  ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err, promise) => {
+    console.error(`Error: ${err.message}`);
+});
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -39,8 +45,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Temporarily disabled for 502 debugging
-// app.use('/api', apiLimiter);
+app.use('/api', apiLimiter);
 
 app.use('/api/auth',     authRoutes);
 app.use('/api/services', serviceRoutes);

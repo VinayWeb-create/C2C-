@@ -23,10 +23,6 @@ const ForgotPassword = () => {
       const { data } = await api.post('/auth/forgot-password', { email });
       if (data.success) {
         toast.success(data.message);
-        if (data.debugOTP) {
-            setOtp(data.debugOTP);
-            toast.success(`Debug: Using OTP ${data.debugOTP}`);
-        }
         setStep(2);
       }
     } catch (err) {

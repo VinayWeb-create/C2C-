@@ -10,8 +10,8 @@ import { authLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();
 
-router.post('/register', register);
-router.post('/login',    login);
+router.post('/register', authLimiter, register);
+router.post('/login',    authLimiter, login);
 router.post('/logout',   protect,     logout);
 router.get ('/me',       protect,     getMe);
 router.put ('/profile',  protect,     updateProfile);
@@ -20,8 +20,8 @@ router.put ('/become-provider', protect, becomeProvider);
 router.put ('/change-password', protect, changePassword);
 
 // Password Reset (Public)
-router.post('/forgot-password', forgotPassword);
-router.post('/verify-otp',      verifyOTP);
-router.post('/reset-password',   resetPassword);
+router.post('/forgot-password', authLimiter, forgotPassword);
+router.post('/verify-otp',      authLimiter, verifyOTP);
+router.post('/reset-password',   authLimiter, resetPassword);
 
 export default router;
