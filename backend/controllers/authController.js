@@ -116,50 +116,48 @@ export const logout = asyncHandler(async (req, res) => {
 // @route   POST /api/auth/forgot-password
 // @access  Public
 export const forgotPassword = asyncHandler(async (req, res) => {
-  const { email } = req.body;
-  const user = await User.findOne({ email });
-
-  if (!user) {
-    return res.json({ success: true, message: 'If your email is registered, an OTP will be sent.' });
-  }
-
-  // Generate 4-digit OTP
-  const otp = Math.floor(1000 + Math.random() * 9000).toString();
-  
-  user.resetPasswordOTP = otp;
-  user.resetPasswordOTPExpire = Date.now() + 10 * 60 * 1000; // 10 mins
-  await user.save();
-
-  // HTML Message
-  const html = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
-      <h2 style="color: #4f46e5; text-align: center;">Smart Local Life</h2>
-      <p>Hello ${user.name},</p>
-      <p>You requested to reset your password. Please use the following 4-digit OTP to complete the process:</p>
-      <div style="background: #f3f4f6; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 10px; color: #1f2937; border-radius: 8px; margin: 20px 0;">
-        ${otp}
-      </div>
-      <p style="color: #6b7280; font-size: 14px;">This code is valid for 10 minutes. If you did not request this, please ignore this email.</p>
-      <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-      <p style="font-size: 12px; color: #9ca3af; text-align: center;">&copy; ${new Date().getFullYear()} Smart Local Life</p>
-    </div>
-  `;
-
   try {
+    const emailLower = email.toLowerCase();
+    const user = await User.findOne({ email: emailLower });
+
+    if (!user) {
+      return res.json({ success: true, message: 'If your email is registered, an OTP will be sent.' });
+    }
+
+    // Generate 4-digit OTP
+    const otp = Math.floor(1000 + Math.random() * 9000).toString();
+    
+    user.resetPasswordOTP = otp;
+    user.resetPasswordOTPExpire = Date.now() + 10 * 60 * 1000; // 10 mins
+    await user.save();
+
+    // HTML Message
+    const html = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+        <h2 style="color: #4f46e5; text-align: center;">Smart Local Life</h2>
+        <p>Hello ${user.name},</p>
+        <p>You requested to reset your password. Please use the following <strong>4-digit OTP</strong> to complete the process:</p>
+        <div style="background: #f3f4f6; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 10px; color: #1f2937; border-radius: 8px; margin: 20px 0;">
+          ${otp}
+        </div>
+        <p style="color: #6b7280; font-size: 14px;">This code is valid for 10 minutes. If you did not request this, please ignore this email.</p>
+        <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+        <p style="font-size: 12px; color: #9ca3af; text-align: center;">&copy; ${new Date().getFullYear()} Smart Local Life</p>
+      </div>
+    `;
+
     await sendEmail({
       email: user.email,
       subject: 'Password Reset OTP - Smart Local Life',
       message: `Your password reset OTP is ${otp}`,
       html
     });
+    
     res.json({ success: true, message: 'OTP sent to your registered email.' });
   } catch (err) {
-    console.error('Email Error:', err);
-    // Fallback for development: show OTP in console
-    console.log('------------------------------------------');
-    console.log(`🔑 FALLBACK OTP FOR ${email}: ${otp}`);
-    console.log('------------------------------------------');
-    res.json({ success: true, message: 'OTP generated. Please check your email (or server logs in dev mode).' });
+    console.error('Forgot Password Error:', err);
+    res.status(500);
+    throw new Error('Could not send the password reset email. Please try again later.');
   }
 });
 
@@ -168,8 +166,9 @@ export const forgotPassword = asyncHandler(async (req, res) => {
 // @access  Public
 export const verifyOTP = asyncHandler(async (req, res) => {
   const { email, otp } = req.body;
+  const emailLower = email.toLowerCase();
   const user = await User.findOne({ 
-    email, 
+    email: emailLower, 
     resetPasswordOTP: otp,
     resetPasswordOTPExpire: { $gt: Date.now() }
   }).select('+resetPasswordOTP +resetPasswordOTPExpire');
@@ -187,8 +186,9 @@ export const verifyOTP = asyncHandler(async (req, res) => {
 // @access  Public
 export const resetPassword = asyncHandler(async (req, res) => {
   const { email, otp, newPassword } = req.body;
+  const emailLower = email.toLowerCase();
   const user = await User.findOne({ 
-    email, 
+    email: emailLower, 
     resetPasswordOTP: otp,
     resetPasswordOTPExpire: { $gt: Date.now() }
   }).select('+resetPasswordOTP +resetPasswordOTPExpire');
