@@ -57,7 +57,9 @@ const projectSchema = new mongoose.Schema({
       enum: ['pending', 'shortlisted', 'accepted', 'rejected'],
       default: 'pending'
     },
-    notes: String
+    notes: String,
+    contactEmail: String,
+    contactPhone: String
   }],
   assignedTo: {
     type: mongoose.Schema.ObjectId,

@@ -37,6 +37,8 @@ const ProviderDashboard = () => {
   const [showForm,    setShowForm]   = useState(false);
   const [applyModal,  setApplyModal] = useState(null);
   const [applyNotes,  setApplyNotes] = useState('');
+  const [applyEmail,  setApplyEmail] = useState(user?.email || '');
+  const [applyPhone,  setApplyPhone] = useState('');
 
   // Service Form
   const [form, setForm] = useState({
@@ -83,10 +85,15 @@ const ProviderDashboard = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await api.post(`/projects/${applyModal}/apply`, { notes: applyNotes });
+      await api.post(`/projects/${applyModal}/apply`, { 
+        notes: applyNotes,
+        contactEmail: applyEmail,
+        contactPhone: applyPhone
+      });
       toast.success('Application submitted to Admin! 🚀');
       setApplyModal(null);
       setApplyNotes('');
+      setApplyPhone('');
       fetchData();
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to apply');
@@ -449,6 +456,16 @@ const ProviderDashboard = () => {
               </div>
 
               <form onSubmit={handleApply} className="space-y-6">
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Primary Email</label>
+                        <input required type="email" placeholder="you@example.com" value={applyEmail} onChange={e => setApplyEmail(e.target.value)} className="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-2xl py-4 px-6 text-sm font-bold text-gray-900 dark:text-white"/>
+                    </div>
+                    <div>
+                        <label className="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">WhatsApp / Phone</label>
+                        <input required type="tel" placeholder="+91 ..." value={applyPhone} onChange={e => setApplyPhone(e.target.value)} className="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-2xl py-4 px-6 text-sm font-bold text-gray-900 dark:text-white"/>
+                    </div>
+                 </div>
                  <div>
                     <label className="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Application Message</label>
                     <textarea required rows={5} placeholder="I have a 100% score in Web Development Academy and 2 successful projects..." value={applyNotes} onChange={e => setApplyNotes(e.target.value)} className="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-2xl py-4 px-6 text-sm font-bold text-gray-900 dark:text-white resize-none"/>

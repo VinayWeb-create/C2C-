@@ -357,7 +357,11 @@ const AdminDashboard = () => {
                                          <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center font-bold text-xs">{app.provider?.name?.[0]}</div>
                                          <span className="text-xs font-bold text-gray-900 dark:text-white">{app.provider?.name}</span>
                                       </div>
-                                      <p className="text-[10px] text-gray-500 mb-4 line-clamp-2">Notes: {app.notes || 'No message'}</p>
+                                      <p className="text-[10px] text-gray-500 mb-1 line-clamp-2"><strong>Notes:</strong> {app.notes || 'No message'}</p>
+                                      <div className="flex flex-col gap-1 mb-4">
+                                         {app.contactEmail && <p className="text-[9px] text-primary-600 font-bold truncate tracking-tight">{app.contactEmail}</p>}
+                                         {app.contactPhone && <p className="text-[9px] text-gray-400 font-bold tracking-tight">{app.contactPhone}</p>}
+                                      </div>
                                       <button 
                                         onClick={() => handleAssign(project._id, app.provider?._id || app.provider)}
                                         className="w-full py-2 bg-primary-600 text-white rounded-xl text-[10px] font-black uppercase tracking-widest"
