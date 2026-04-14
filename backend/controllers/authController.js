@@ -56,9 +56,9 @@ export const getMe = asyncHandler(async (req, res) => {
 // @route   PUT /api/auth/profile
 // @access  Private
 export const updateProfile = asyncHandler(async (req, res) => {
-  const { name, phone, location, avatar, professionalInfo } = req.body;
+  const { name, phone, location, avatar, professionalInfo, isProfileComplete } = req.body;
 
-  const updateData = { name, phone, location, avatar, professionalInfo };
+  const updateData = { name, phone, location, avatar, professionalInfo, isProfileComplete };
   
   // If professional info is being updated and it's substantial, mark portfolio as submitted
   if (professionalInfo && (professionalInfo.portfolioUrl || professionalInfo.skills?.length > 0)) {
