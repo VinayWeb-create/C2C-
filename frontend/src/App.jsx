@@ -29,17 +29,17 @@ import ProfilePage from './pages/ProfilePage';
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, initialLoad } = useAuth();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (user && !user.isProfileComplete && 
+    if (!initialLoad && user && !user.isProfileComplete && 
         location.pathname !== '/profile-setup' && 
         location.pathname !== '/login' && 
         location.pathname !== '/register') {
       navigate('/profile-setup');
     }
-  }, [location.pathname, user, navigate]);
+  }, [location.pathname, user, navigate, initialLoad]);
 
   return (
     <>

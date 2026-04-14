@@ -64,34 +64,39 @@ export const updateProfile = asyncHandler(async (req, res) => {
     throw new Error('User not found');
   }
 
-  // Update top-level fields safely
-  if (name) user.set('name', name);
-  if (phone) user.set('phone', phone);
-  if (location) user.set('location', location);
-  if (avatar) user.set('avatar', avatar);
-  if (isProfileComplete !== undefined) user.set('isProfileComplete', isProfileComplete);
+  const updateData = {
+    name: name || user.name,
+    phone: phone || user.phone,
+    avatar: avatar || user.avatar,
+    location: location || user.location,
+  };
 
-  // Update nested professional info safely
+  if (isProfileComplete !== undefined) {
+    updateData.isProfileComplete = !!isProfileComplete;
+  }
+
   if (professionalInfo) {
-    Object.keys(professionalInfo).forEach(key => {
-      // Mapping field names if they differ slightly
-      const value = professionalInfo[key];
-      user.set(`professionalInfo.${key}`, value);
-    });
+    updateData.professionalInfo = {
+      ...user.professionalInfo.toObject(),
+      ...professionalInfo
+    };
     
-    // Mark portfolio as submitted if substantial info provided
     if (professionalInfo.portfolioUrl || (professionalInfo.skills && professionalInfo.skills.length > 0)) {
-      user.set('portfolioSubmittedAt', Date.now());
+      updateData.portfolioSubmittedAt = Date.now();
     }
   }
 
   try {
-    const updatedUser = await user.save();
-    console.log(`Backend: User profile updated successfully: ${user.email}`);
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      { $set: updateData },
+      { new: true, runValidators: true }
+    );
+    
+    console.log(`Backend: Profile updated via findByIdAndUpdate: ${updatedUser.email}, isComplete: ${updatedUser.isProfileComplete}`);
     res.json({ success: true, user: updatedUser });
   } catch (err) {
     console.error('Backend: Profile Update CRITICAL Error:', err);
-    // Let the global errorHandler handle formatting, but send an informative 400
     res.status(400);
     throw new Error(err.message || 'Profile update failed validation');
   }

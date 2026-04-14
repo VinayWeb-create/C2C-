@@ -30,8 +30,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await api.post('/auth/register', formData);
       localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      setUser(data.user);
+      updateUser(data.user);
       toast.success(`Welcome, ${data.user.name}! 🎉`);
       return { success: true, user: data.user };
     } catch (err) {
@@ -48,8 +47,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await api.post('/auth/login', { email, password });
       localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      setUser(data.user);
+      updateUser(data.user);
       toast.success(`Welcome back, ${data.user.name}!`);
       return { success: true, user: data.user };
     } catch (err) {
