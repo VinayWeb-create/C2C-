@@ -37,7 +37,10 @@ export const sendTokenResponse = (user, statusCode, res) => {
         isApproved: user.isApproved,
         badges:     user.badges,
         professionalInfo: user.professionalInfo,
-        portfolioSubmittedAt: user.portfolioSubmittedAt
+        portfolioSubmittedAt: user.portfolioSubmittedAt,
+        isProfileComplete: user.isProfileComplete,
+        activeLearningDomain: user.activeLearningDomain,
+        completedVideos: user.completedVideos
       },
     });
 };

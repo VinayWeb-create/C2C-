@@ -17,11 +17,11 @@ const ProfileSetupPage = () => {
   const [formData, setFormData] = useState({
     name: user?.name || '',
     phone: user?.phone || '',
-    education: '',
-    github: '',
-    linkedin: '',
-    resumeLink: '', // Public drive link
-    bio: ''
+    education: user?.professionalInfo?.education || '',
+    github: user?.professionalInfo?.githubUrl || user?.professionalInfo?.portfolioUrl || '',
+    linkedin: user?.professionalInfo?.linkedInUrl || '',
+    resumeLink: user?.professionalInfo?.resumeUrl || '',
+    bio: user?.professionalInfo?.bio || ''
   });
 
   const handleSubmit = async (e) => {
@@ -59,8 +59,14 @@ const ProfileSetupPage = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col items-center justify-center p-6">
       <div className="max-w-xl w-full">
          <div className="text-center mb-10">
-            <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-3">Build Your Identity</h1>
-            <p className="text-gray-500">Provide your credentials to start your career journey at C2C Hub.</p>
+            <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-3">
+              {user?.isProfileComplete ? 'Update Your Identity' : 'Build Your Identity'}
+            </h1>
+            <p className="text-gray-500">
+              {user?.isProfileComplete 
+                ? 'Keep your professional details up to date for better opportunities.' 
+                : 'Provide your credentials to start your career journey at C2C Hub.'}
+            </p>
          </div>
 
          <div className="bg-white dark:bg-gray-900 rounded-[3rem] p-10 shadow-2xl border border-gray-100 dark:border-gray-800">
@@ -121,12 +127,12 @@ const ProfileSetupPage = () => {
                   <textarea rows={3} value={formData.bio} onChange={e => setFormData({...formData, bio: e.target.value})} className="input-field resize-none" placeholder="Tell us about your career goals..." />
                </div>
 
-               <button 
+                <button 
                  type="submit" 
                  disabled={loading}
                  className="w-full py-5 bg-primary-600 text-white font-black rounded-3xl shadow-xl shadow-primary-600/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
                >
-                 {loading ? 'Finalizing...' : 'Complete Profile Setup'}
+                 {loading ? 'Saving Changes...' : (user?.isProfileComplete ? 'Update Professional Profile' : 'Complete Profile Setup')}
                  <ArrowRightIcon className="w-5 h-5" />
                </button>
             </form>

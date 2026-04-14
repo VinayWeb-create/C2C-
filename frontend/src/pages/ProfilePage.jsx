@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
   UserIcon, AcademicCapIcon, 
@@ -8,7 +9,8 @@ import {
   EnvelopeIcon,
   PhoneIcon,
   ArrowDownTrayIcon,
-  TrophyIcon
+  TrophyIcon,
+  PencilSquareIcon
 } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
@@ -37,7 +39,13 @@ const ProfilePage = () => {
             </div>
             
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-2">{user.name}</h1>
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-2">
+                <h1 className="text-4xl font-black text-gray-900 dark:text-white">{user.name}</h1>
+                <Link to="/profile-setup" className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 rounded-xl text-xs font-black uppercase tracking-widest border border-primary-200/50 hover:bg-primary-100 transition-all w-fit mx-auto md:mx-0">
+                  <PencilSquareIcon className="w-4 h-4" />
+                  Edit Profile
+                </Link>
+              </div>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-gray-500 text-sm font-bold">
                  <span className="flex items-center gap-1"><EnvelopeIcon className="w-4 h-4" /> {user.email}</span>
                  <span className="flex items-center gap-1"><PhoneIcon className="w-4 h-4" /> {user.phone}</span>
