@@ -100,8 +100,12 @@ export const updateProfile = asyncHandler(async (req, res) => {
   }
 
   if (professionalInfo) {
+    const existingInfo = user.professionalInfo ? 
+      (typeof user.professionalInfo.toObject === 'function' ? user.professionalInfo.toObject() : user.professionalInfo) 
+      : {};
+
     updateData.professionalInfo = {
-      ...user.professionalInfo.toObject(),
+      ...existingInfo,
       ...professionalInfo
     };
     

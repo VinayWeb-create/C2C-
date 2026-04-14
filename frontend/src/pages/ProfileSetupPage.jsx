@@ -45,7 +45,7 @@ const ProfileSetupPage = () => {
       
       updateUser(data.user);
       toast.success('Professional profile built successfully! 🚀');
-      navigate('/dashboard/user');
+      navigate(user?.role === 'provider' ? '/dashboard/provider' : '/dashboard/user');
     } catch (err) {
       console.error('PROFILING ERROR:', err);
       const msg = err.response?.data?.message || 'Failed to update profile';
