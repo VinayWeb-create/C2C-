@@ -38,6 +38,16 @@ export const login = asyncHandler(async (req, res) => {
 
   // Reload user to ensure all fields are fresh before sending response
   const freshUser = await User.findById(user._id);
+  
+  if (freshUser && !freshUser.isProfileComplete) {
+    // Legacy fix: If they already have professional info, mark profile as complete
+    if (freshUser.professionalInfo?.education && (freshUser.professionalInfo?.resumeUrl || freshUser.professionalInfo?.portfolioUrl)) {
+      freshUser.isProfileComplete = true;
+      await freshUser.save();
+      console.log(`Backend: Auto-completed profile flag for legacy user during login: ${freshUser.email}`);
+    }
+  }
+
   console.log(`Backend: User logging in: ${freshUser.email}, isProfileComplete: ${freshUser.isProfileComplete}`);
 
   if (!freshUser.isActive) {
@@ -53,6 +63,16 @@ export const login = asyncHandler(async (req, res) => {
 // @access  Private
 export const getMe = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
+  
+  if (user && !user.isProfileComplete) {
+    // Legacy fix: If they already have professional info, mark profile as complete
+    if (user.professionalInfo?.education && (user.professionalInfo?.resumeUrl || user.professionalInfo?.portfolioUrl)) {
+      user.isProfileComplete = true;
+      await user.save();
+      console.log(`Backend: Auto-completed profile flag for legacy user: ${user.email}`);
+    }
+  }
+
   res.json({ success: true, user });
 });
 
