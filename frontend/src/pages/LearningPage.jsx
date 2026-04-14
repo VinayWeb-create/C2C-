@@ -326,23 +326,60 @@ const LearningPage = () => {
 
                 {/* YouTube Content */}
                 {activeTab === 'youtube' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {data.youtube.map((video) => (
-                      <div key={video.id} className="card overflow-hidden group">
-                        <div className="relative aspect-video">
-                          <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href={video.url.replace('embed/', 'watch?v=')} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/20 backdrop-blur rounded-full text-white">
-                              <PlayIcon className="w-8 h-8 fill-current" />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-gray-900 dark:text-white mb-1 line-clamp-1">{video.title}</h3>
-                          <p className="text-xs text-gray-500">{video.channel}</p>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="space-y-12">
+                     {/* Video Player Section */}
+                     <div className="bg-black rounded-[3rem] aspect-video overflow-hidden shadow-2xl relative group">
+                        <iframe 
+                          id="academy-player"
+                          className="w-full h-full"
+                          src={data.youtube[0].url} 
+                          title="C2C Academy Player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                     </div>
+
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {data.youtube.map((video) => {
+                          const isCompleted = user?.completedVideos?.includes(video.id);
+                          return (
+                            <div 
+                              key={video.id} 
+                              onClick={async () => {
+                                document.getElementById('academy-player').src = video.url;
+                                if (!isCompleted) {
+                                  try {
+                                    const { data: res } = await api.put('/auth/complete-video', { videoId: video.id });
+                                    updateUser(res.user);
+                                    toast.success('Session Progress Recorded! 📚', { icon: '✅' });
+                                  } catch (err) {}
+                                }
+                              }}
+                              className={`card overflow-hidden group cursor-pointer transition-all ${isCompleted ? 'border-green-500/50 bg-green-50/10' : ''}`}
+                            >
+                              <div className="relative aspect-video">
+                                <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                  <PlayIcon className="w-8 h-8 text-white fill-current" />
+                                </div>
+                                {isCompleted && (
+                                  <div className="absolute top-2 right-2 bg-green-500 text-white p-1 rounded-full shadow-lg">
+                                    <CheckCircleIcon className="w-4 h-4" />
+                                  </div>
+                                )}
+                              </div>
+                              <div className="p-4">
+                                <h3 className={`font-bold text-sm mb-1 line-clamp-1 ${isCompleted ? 'text-green-600' : 'text-gray-900 dark:text-white'}`}>
+                                  {video.title}
+                                  {isCompleted && ' (Completed)'}
+                                </h3>
+                                <p className="text-[10px] text-gray-500 uppercase tracking-widest">{video.channel}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                     </div>
                   </div>
                 )}
 

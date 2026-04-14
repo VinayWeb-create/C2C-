@@ -81,6 +81,7 @@ const userSchema = new mongoose.Schema({
   portfolioSubmittedAt: { type: Date },
   isProfileComplete: { type: Boolean, default: false },
   activeLearningDomain: { type: String, default: null },
+  completedVideos: [{ type: String }], // Array of video IDs
   testResults: [{
     category: String,
     examScore: Number,      // Out of 50

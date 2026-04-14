@@ -48,8 +48,12 @@ const UserDashboard = () => {
   const calculateProgress = () => {
     if (!user?.activeLearningDomain) return 10;
     if (hasProfessionalBadge) return 100;
-    if (currentTestResult) return 75; // Took the test but no badge yet
-    return 40; // Chosen domain but no test yet
+    if (currentTestResult) return 75;
+    
+    // Calculate video completion ratio (assuming 5 videos per domain for now)
+    const videosCompleted = user?.completedVideos?.length || 0;
+    const moreProgress = Math.min(videosCompleted * 5, 20); // 20% base + up to 20% from videos = 40%
+    return 20 + moreProgress;
   };
   const academyProgress = calculateProgress();
 

@@ -123,6 +123,23 @@ export const setActiveDomain = asyncHandler(async (req, res) => {
   res.json({ success: true, user });
 });
 
+export const completeVideo = asyncHandler(async (req, res) => {
+  const { videoId } = req.body;
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    res.status(404);
+    throw new Error('User not found');
+  }
+
+  if (!user.completedVideos.includes(videoId)) {
+    user.completedVideos.push(videoId);
+    await user.save();
+  }
+
+  res.json({ success: true, user });
+});
+
 export const addBadge = asyncHandler(async (req, res) => {
   const { name, role, testResult } = req.body;
   const user = await User.findById(req.user._id);

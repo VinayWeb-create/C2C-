@@ -16,6 +16,7 @@ router.post('/logout',   protect,     logout);
 router.get ('/me',       protect,     getMe);
 router.put ('/profile',  protect,     updateProfile);
 router.put ('/set-active-domain', protect, setActiveDomain);
+router.put ('/complete-video',    protect, completeVideo);
 router.put ('/add-badge', protect,     addBadge);
 router.put ('/become-provider', protect, becomeProvider);
 router.put ('/change-password', protect, changePassword);
