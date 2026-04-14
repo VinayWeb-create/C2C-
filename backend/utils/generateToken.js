@@ -34,6 +34,10 @@ export const sendTokenResponse = (user, statusCode, res) => {
         avatar:   user.avatar,
         phone:    user.phone,
         location: user.location,
+        isApproved: user.isApproved,
+        badges:     user.badges,
+        professionalInfo: user.professionalInfo,
+        portfolioSubmittedAt: user.portfolioSubmittedAt
       },
     });
 };
