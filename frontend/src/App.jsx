@@ -8,6 +8,7 @@ import Footer   from './components/common/Footer';
 import AIChatbot from './components/ai/AIChatbot';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
 // Pages
 import HomePage          from './pages/HomePage';
 import LoginPage         from './pages/LoginPage';
@@ -26,6 +27,7 @@ import WorkroomPage      from './pages/WorkroomPage';
 import ProfileSetupPage   from './pages/ProfileSetupPage';
 import ProfilePage from './pages/ProfilePage';
 import Loader from './components/common/Loader';
+import PlacementPage from './pages/PlacementPage';
 
 const App = () => {
   const location = useLocation();
@@ -133,6 +135,7 @@ const App = () => {
               } />
 
               <Route path="/admin" element={<Navigate to="/dashboard/admin" replace />} />
+                  <Route path="/placement" element={<PlacementPage />} />
 
               {/* 404 */}
               <Route path="*" element={
