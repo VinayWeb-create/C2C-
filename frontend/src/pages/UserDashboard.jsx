@@ -257,5 +257,54 @@ const UserDashboard = () => {
     </div>
   );
 };
+ {/* ── PLACEMENT ZONE PROMO ── */}
+  <div className="mt-10 relative overflow-hidden bg-gradient-to-br from-gray-900 to-slate-900 rounded-[3rem] p-10 border border-gray-800">
+    {/* Glow */}
+    <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none" />
+    <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-[60px] pointer-events-none" />
+ 
+    <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 justify-between">
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center shadow-xl shadow-violet-500/30">
+            <GraduationCap className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-widest text-cyan-400">New Feature</p>
+            <h3 className="text-xl font-black text-white">Placement Prep Zone</h3>
+          </div>
+        </div>
+ 
+        <p className="text-gray-400 text-sm max-w-md mb-6 leading-relaxed">
+          Practice CRT aptitude, technical quizzes, mock interview questions and download study notes — all integrated into C2C.
+        </p>
+ 
+        <div className="flex flex-wrap gap-3">
+          {[
+            { label: 'CRT Practice',   icon: BrainCircuit, color: 'text-teal-400 bg-teal-500/10 border-teal-500/30' },
+            { label: 'Tech Quiz',      icon: Code2,        color: 'text-violet-400 bg-violet-500/10 border-violet-500/30' },
+            { label: 'Interview Prep', icon: Mic,          color: 'text-rose-400 bg-rose-500/10 border-rose-500/30' },
+          ].map(item => {
+            const Icon = item.icon;
+            return (
+              <span key={item.label} className={\`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase border \${item.color}\`}>
+                <Icon className="w-3 h-3" />
+                {item.label}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+ 
+      <button
+        onClick={() => navigate('/placement')}
+        className="flex-shrink-0 px-10 py-5 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black rounded-3xl shadow-2xl shadow-violet-500/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 whitespace-nowrap"
+      >
+        Open Placement Zone
+        <ArrowRightIcon className="w-5 h-5" />
+      </button>
+    </div>
+  </div>
+`;
 
 export default UserDashboard;
