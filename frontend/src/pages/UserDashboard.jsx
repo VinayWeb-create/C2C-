@@ -11,12 +11,12 @@ import api from '../api/axios';
 import Loader from '../components/common/Loader';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BrainCircuit, Code2, Mic, GraduationCap } from 'lucide-react';
 
 const UserDashboard = () => {
   const { user, becomeProvider } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [activeDomain, setActiveDomain] = useState('Web Development');
 
   const handleBecomeProvider = async () => {
     const res = await becomeProvider();
@@ -25,18 +25,15 @@ const UserDashboard = () => {
     }
   };
 
-  // Stats calculation based on user data
   const stats = {
     badges: user?.badges?.length || 0,
     tests: user?.testResults?.length || 0,
-    // Mocking video/roadmap data as it's not in the DB yet, but can be simulated for UI
     videos: Math.floor((user?.testResults?.length || 0) * 2.5), 
     roadmaps: user?.badges?.length ? 1 : 0,
     projects: user?.badges?.length || 0
   };
 
   useEffect(() => {
-    // Simulated load to fetch latest user details
     const timer = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
@@ -44,15 +41,12 @@ const UserDashboard = () => {
   const hasProfessionalBadge = user?.badges?.some(b => b.role === user.activeLearningDomain);
   const currentTestResult = user?.testResults?.find(r => r.category === user.activeLearningDomain);
 
-  // Calculate dynamic progress
   const calculateProgress = () => {
     if (!user?.activeLearningDomain) return 10;
     if (hasProfessionalBadge) return 100;
     if (currentTestResult) return 75;
-    
-    // Calculate video completion ratio (assuming 5 videos per domain for now)
     const videosCompleted = user?.completedVideos?.length || 0;
-    const moreProgress = Math.min(videosCompleted * 5, 20); // 20% base + up to 20% from videos = 40%
+    const moreProgress = Math.min(videosCompleted * 5, 20);
     return 20 + moreProgress;
   };
   const academyProgress = calculateProgress();
@@ -116,7 +110,7 @@ const UserDashboard = () => {
           { label: 'Roadmaps Started', value: user.activeLearningDomain ? 1 : 0, icon: MapIcon, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20' },
           { label: 'Projects Done', value: currentTestResult ? 1 : 0, icon: BriefcaseIcon, color: 'text-purple-600', bg: 'bg-purple-50 dark:bg-purple-900/20' },
           { label: 'Practice Tests', value: currentTestResult ? 1 : 0, icon: BeakerIcon, color: 'text-rose-600', bg: 'bg-rose-50 dark:bg-rose-900/20' },
-          { label: 'Merit Score', value: hasProfessionalBadge ? '100%' : currentTestResult ? 'Assessment Pending' : '0%', icon: TrophyIcon, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+          { label: 'Merit Score', value: hasProfessionalBadge ? '100%' : currentTestResult ? 'Pending' : '0%', icon: TrophyIcon, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-900/20' },
         ].map((card) => {
           const Icon = card.icon;
           return (
@@ -167,7 +161,7 @@ const UserDashboard = () => {
                     {[
                       { title: user.activeLearningDomain || 'Foundations', status: user.activeLearningDomain ? 'In Progress' : 'Pending', icon: CheckBadgeIcon, color: user.activeLearningDomain ? 'text-blue-500' : 'text-gray-300' },
                       { title: 'Project Work', status: hasProfessionalBadge ? 'Completed' : currentTestResult ? 'Under Review' : 'Locked', icon: BriefcaseIcon, color: hasProfessionalBadge ? 'text-green-500' : currentTestResult ? 'text-blue-500' : 'text-gray-300' },
-                      { title: 'Merit Test', status: hasProfessionalBadge ? '100% Score' : currentTestResult ? 'Score: ' + currentTestResult.score : 'Locked', icon: TrophyIcon, color: hasProfessionalBadge ? 'text-amber-500' : currentTestResult ? 'text-blue-500' : 'text-gray-300' },
+                      { title: 'Merit Test', status: hasProfessionalBadge ? '100% Score' : currentTestResult ? `Score: ${currentTestResult.score}` : 'Locked', icon: TrophyIcon, color: hasProfessionalBadge ? 'text-amber-500' : currentTestResult ? 'text-blue-500' : 'text-gray-300' },
                       { title: 'Provider Badge', status: hasProfessionalBadge ? 'Earned' : 'Locked', icon: ShieldCheckIcon, color: hasProfessionalBadge ? 'text-primary-500' : 'text-gray-300' },
                     ].map((step) => (
                       <div key={step.title} className="p-5 bg-gray-50 dark:bg-gray-800/50 rounded-[1.5rem] border border-gray-100 dark:border-gray-750 flex items-center justify-between">
@@ -241,14 +235,58 @@ const UserDashboard = () => {
                     <div key={idx} className="flex items-center justify-between">
                        <div className="flex items-center gap-3">
                           <CheckBadgeIcon className="w-5 h-5 text-green-500" />
-                          <span className="text-sm font-bold text-gray-700 dark:text-gray-200">Test #{result.testId}</span>
+                          <span className="text-sm font-bold text-gray-700 dark:text-gray-200">{result.category}</span>
                        </div>
-                       <span className="font-black text-primary-600 text-sm">{result.score}%</span>
+                       <span className="font-black text-primary-600 text-sm">{result.examScore + result.projectScore}/100</span>
                     </div>
                  )) : (
                     <p className="text-xs text-gray-400">Complete sessions to unlock tests.</p>
                  )}
               </div>
+           </div>
+
+           {/* Placement Zone Promo */}
+           <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-slate-900 rounded-[2.5rem] p-8 border border-gray-800">
+             <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-[60px] pointer-events-none" />
+             <div className="relative z-10">
+               <div className="flex items-center gap-3 mb-4">
+                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center shadow-xl shadow-violet-500/30">
+                   <GraduationCap className="w-5 h-5 text-white" />
+                 </div>
+                 <div>
+                   <p className="text-[10px] font-black uppercase tracking-widest text-cyan-400">New Feature</p>
+                   <h3 className="text-sm font-black text-white">Placement Prep Zone</h3>
+                 </div>
+               </div>
+
+               <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+                 CRT aptitude, tech quizzes, mock interviews and study notes — all inside C2C.
+               </p>
+
+               <div className="flex flex-wrap gap-2 mb-4">
+                 {[
+                   { label: 'CRT',       icon: BrainCircuit, color: 'text-teal-400',   bg: 'bg-teal-500/10',   border: 'border-teal-500/30' },
+                   { label: 'Tech Quiz', icon: Code2,        color: 'text-violet-400', bg: 'bg-violet-500/10', border: 'border-violet-500/30' },
+                   { label: 'Interview', icon: Mic,          color: 'text-rose-400',   bg: 'bg-rose-500/10',   border: 'border-rose-500/30' },
+                 ].map(item => {
+                   const Icon = item.icon;
+                   return (
+                     <span key={item.label} className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[9px] font-black uppercase border ${item.color} ${item.bg} ${item.border}`}>
+                       <Icon className="w-3 h-3" />
+                       {item.label}
+                     </span>
+                   );
+                 })}
+               </div>
+
+               <button
+                 onClick={() => navigate('/placement')}
+                 className="w-full py-3 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 text-xs"
+               >
+                 Open Placement Zone
+                 <ArrowRightIcon className="w-4 h-4" />
+               </button>
+             </div>
            </div>
         </div>
 
@@ -257,54 +295,5 @@ const UserDashboard = () => {
     </div>
   );
 };
- {/* ── PLACEMENT ZONE PROMO ── */}
-  <div className="mt-10 relative overflow-hidden bg-gradient-to-br from-gray-900 to-slate-900 rounded-[3rem] p-10 border border-gray-800">
-    {/* Glow */}
-    <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none" />
-    <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-[60px] pointer-events-none" />
- 
-    <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center shadow-xl shadow-violet-500/30">
-            <GraduationCap className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-cyan-400">New Feature</p>
-            <h3 className="text-xl font-black text-white">Placement Prep Zone</h3>
-          </div>
-        </div>
- 
-        <p className="text-gray-400 text-sm max-w-md mb-6 leading-relaxed">
-          Practice CRT aptitude, technical quizzes, mock interview questions and download study notes — all integrated into C2C.
-        </p>
- 
-        <div className="flex flex-wrap gap-3">
-          {[
-            { label: 'CRT Practice',   icon: BrainCircuit, color: 'text-teal-400 bg-teal-500/10 border-teal-500/30' },
-            { label: 'Tech Quiz',      icon: Code2,        color: 'text-violet-400 bg-violet-500/10 border-violet-500/30' },
-            { label: 'Interview Prep', icon: Mic,          color: 'text-rose-400 bg-rose-500/10 border-rose-500/30' },
-          ].map(item => {
-            const Icon = item.icon;
-            return (
-              <span key={item.label} className={\`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase border \${item.color}\`}>
-                <Icon className="w-3 h-3" />
-                {item.label}
-              </span>
-            );
-          })}
-        </div>
-      </div>
- 
-      <button
-        onClick={() => navigate('/placement')}
-        className="flex-shrink-0 px-10 py-5 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black rounded-3xl shadow-2xl shadow-violet-500/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 whitespace-nowrap"
-      >
-        Open Placement Zone
-        <ArrowRightIcon className="w-5 h-5" />
-      </button>
-    </div>
-  </div>
-`;
 
 export default UserDashboard;
