@@ -7,6 +7,7 @@ import Loader from '../components/common/Loader';
 import { CATEGORIES, CATEGORY_ICONS } from '../utils/helpers';
 import useLocation from '../hooks/useLocation';
 import toast from 'react-hot-toast';
+import { BrainCircuit, Code2, Mic, BookOpen } from 'lucide-react';
 
 const HomePage = () => {
   const navigate = useNavigate();
