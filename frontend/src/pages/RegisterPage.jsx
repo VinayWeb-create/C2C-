@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon, UserIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../context/AuthContext';
 
+import { GoogleLogin } from '@react-oauth/google';
+
 const RegisterPage = () => {
-  const { register, loading } = useAuth();
+  const { register, googleLogin, loading } = useAuth();
   const navigate = useNavigate();
   const [form,    setForm]    = useState({ name: '', email: '', password: '', phone: '', role: 'user' });
   const [showPwd, setShowPwd] = useState(false);
@@ -25,6 +27,15 @@ const RegisterPage = () => {
     const result = await register(form);
     if (result.success) {
       navigate('/dashboard/user');
+    }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    const result = await googleLogin(credentialResponse.credential);
+    if (result.success) {
+      if (result.user.role === 'admin') navigate('/dashboard/admin');
+      else if (result.user.role === 'provider') navigate('/dashboard/provider');
+      else navigate('/dashboard/user');
     }
   };
 
@@ -116,6 +127,27 @@ const RegisterPage = () => {
               ) : 'Start Your Journey'}
             </button>
           </form>
+
+          {/* OR Divider */}
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white dark:bg-gray-900 text-gray-500 uppercase text-[10px] font-bold tracking-widest leading-none">Or join with</span>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => toast.error('Google signup failed')}
+              theme="outline"
+              size="large"
+              width="320"
+              shape="pill"
+            />
+          </div>
 
           <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-10">
             Already a member?{' '}
