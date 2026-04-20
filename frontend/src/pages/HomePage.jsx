@@ -225,97 +225,94 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-       {/* ── PLACEMENT ZONE PROMO ── */}
-  <section className="page-container pt-0 pb-8">
-    <div className="rounded-[3rem] overflow-hidden relative bg-gray-950 border border-gray-800">
- 
-      {/* Animated background grid */}
-      <div className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}
-      />
-      {/* Glow orbs */}
-      <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/15 rounded-full blur-[100px]" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-violet-500/15 rounded-full blur-[100px]" />
- 
-      <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
- 
-        {/* Left content */}
-        <div className="flex-1">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-black uppercase tracking-widest text-cyan-400 mb-6">
-            <span>⚡</span> New — Placement Preparation Zone
-          </div>
- 
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-            Practice. Prepare.
-            <span className="block bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-              Get Hired.
-            </span>
-          </h2>
- 
-          <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-            Integrated aptitude tests, technical quizzes, mock interviews and study notes — designed to get C2C members placed at top companies.
-          </p>
- 
-          {/* Feature tiles */}
-          <div className="grid grid-cols-2 gap-3 mb-10 max-w-lg">
-            {[
-              { icon: BrainCircuit, label: 'CRT Aptitude',   sub: '500+ questions', color: 'text-teal-400',   bg: 'bg-teal-500/10' },
-              { icon: Code2,        label: 'Tech Quizzes',   sub: 'C, Java, Python',  color: 'text-violet-400', bg: 'bg-violet-500/10' },
-              { icon: Mic,          label: 'Mock Interview', sub: 'HR + Technical',  color: 'text-rose-400',   bg: 'bg-rose-500/10' },
-              { icon: BookOpen,     label: 'Study Notes',    sub: 'DBMS, OS, CN',    color: 'text-amber-400',  bg: 'bg-amber-500/10' },
-            ].map(item => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className={\`flex items-center gap-3 p-4 \${item.bg} rounded-2xl border border-white/5\`}>
-                  <Icon className={\`w-5 h-5 \${item.color} flex-shrink-0\`} />
-                  <div>
-                    <p className="text-white text-sm font-bold">{item.label}</p>
-                    <p className="text-gray-500 text-xs">{item.sub}</p>
-                  </div>
+
+      {/* ── PLACEMENT ZONE PROMO ── */}
+      <section className="page-container pt-0 pb-8">
+        <div className="rounded-[3rem] overflow-hidden relative bg-gray-950 border border-gray-800">
+          {/* Animated background grid */}
+          <div className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px'
+            }}
+          />
+          {/* Glow orbs */}
+          <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/15 rounded-full blur-[100px]" />
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-violet-500/15 rounded-full blur-[100px]" />
+
+          <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
+            {/* Left content */}
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-black uppercase tracking-widest text-cyan-400 mb-6">
+                <span>⚡</span> New — Placement Preparation Zone
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                Practice. Prepare.
+                <span className="block bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                  Get Hired.
+                </span>
+              </h2>
+
+              <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
+                Integrated aptitude tests, technical quizzes, mock interviews and study notes — designed to get C2C members placed at top companies.
+              </p>
+
+              {/* Feature tiles */}
+              <div className="grid grid-cols-2 gap-3 mb-10 max-w-lg">
+                {[
+                  { icon: BrainCircuit, label: 'CRT Aptitude',   sub: '500+ questions', color: 'text-teal-400',   bg: 'bg-teal-500/10' },
+                  { icon: Code2,        label: 'Tech Quizzes',   sub: 'C, Java, Python',  color: 'text-violet-400', bg: 'bg-violet-500/10' },
+                  { icon: Mic,          label: 'Mock Interview', sub: 'HR + Technical',  color: 'text-rose-400',   bg: 'bg-rose-500/10' },
+                  { icon: BookOpen,     label: 'Study Notes',    sub: 'DBMS, OS, CN',    color: 'text-amber-400',  bg: 'bg-amber-500/10' },
+                ].map(item => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className={`flex items-center gap-3 p-4 ${item.bg} rounded-2xl border border-white/5`}>
+                      <Icon className={`w-5 h-5 ${item.color} flex-shrink-0`} />
+                      <div>
+                        <p className="text-white text-sm font-bold">{item.label}</p>
+                        <p className="text-gray-500 text-xs">{item.sub}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <button
+                onClick={() => navigate('/placement')}
+                className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black rounded-2xl hover:scale-[1.03] active:scale-95 transition-all shadow-2xl shadow-violet-500/20 inline-flex items-center gap-3"
+              >
+                Open Placement Zone
+                <ArrowRightIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Right mockup */}
+            <div className="flex-shrink-0 w-full md:w-80">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 bg-red-500 rounded-full" />
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full" />
+                  <div className="w-3 h-3 bg-green-500 rounded-full" />
+                  <span className="ml-2 text-[10px] text-gray-600 font-mono">placemint.ct.ws</span>
                 </div>
-              );
-            })}
-          </div>
- 
-          <button
-            onClick={() => navigate('/placement')}
-            className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black rounded-2xl hover:scale-[1.03] active:scale-95 transition-all shadow-2xl shadow-violet-500/20 inline-flex items-center gap-3"
-          >
-            Open Placement Zone
-            <ArrowRightIcon className="w-5 h-5" />
-          </button>
-        </div>
- 
-        {/* Right mockup */}
-        <div className="flex-shrink-0 w-full md:w-80">
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-red-500 rounded-full" />
-              <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-              <div className="w-3 h-3 bg-green-500 rounded-full" />
-              <span className="ml-2 text-[10px] text-gray-600 font-mono">placemint.ct.ws</span>
-            </div>
-            <div className="space-y-3">
-              {['Dashboard', 'CRT Practice', 'Technical Quiz', 'Interview Prep', 'Quiz History', 'Study Notes'].map((item, i) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className={\`w-2 h-2 rounded-full \${i === 1 ? 'bg-cyan-400' : 'bg-gray-700'}\`} />
-                  <div className={\`h-3 rounded-full \${i === 1 ? 'bg-cyan-400/30 w-3/4' : 'bg-gray-800 w-' + (i % 2 === 0 ? '2/3' : '1/2')}\`} />
+                <div className="space-y-3">
+                  {['Dashboard', 'CRT Practice', 'Technical Quiz', 'Interview Prep', 'Quiz History', 'Study Notes'].map((item, i) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <div className={`w-2 h-2 rounded-full ${i === 1 ? 'bg-cyan-400' : 'bg-gray-700'}`} />
+                      <div className={`h-3 rounded-full ${i === 1 ? 'bg-cyan-400/30 w-3/4' : 'bg-gray-800 ' + (i % 2 === 0 ? 'w-2/3' : 'w-1/2')}`} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="mt-5 h-24 bg-gradient-to-br from-cyan-500/10 to-violet-500/10 border border-white/5 rounded-xl flex items-center justify-center">
-              <p className="text-xs text-gray-500 font-bold">Live Placement App</p>
+                <div className="mt-5 h-24 bg-gradient-to-br from-cyan-500/10 to-violet-500/10 border border-white/5 rounded-xl flex items-center justify-center">
+                  <p className="text-xs text-gray-500 font-bold">Live Placement App</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
- 
-      </div>
-    </div>
-  </section>
-`;
+      </section>
 
       {/* ── CTA ── */}
       <section className="max-w-5xl mx-auto px-4 py-24 text-center">
