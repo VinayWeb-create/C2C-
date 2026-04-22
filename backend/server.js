@@ -34,6 +34,7 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'http://localhost:5174',
     'https://c2-c-sable.vercel.app',
     'https://c2-5ltonl5v1-vinay-avalas-projects.vercel.app'
   ],

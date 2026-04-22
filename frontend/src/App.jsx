@@ -89,7 +89,11 @@ const App = () => {
                 } />
                 <Route path="/services/:id" element={<ServiceDetailPage />} />
               <Route path="/support" element={<SupportPage />} />
-              <Route path="/learning" element={<LearningPage />} />
+              <Route path="/learning" element={
+                <ProtectedRoute>
+                  <LearningPage />
+                </ProtectedRoute>
+              } />
 
               {/* Protected — users */}
               <Route path="/book/:id" element={
@@ -135,7 +139,11 @@ const App = () => {
               } />
 
               <Route path="/admin" element={<Navigate to="/dashboard/admin" replace />} />
-                  <Route path="/placement" element={<PlacementPage />} />
+              <Route path="/placement" element={
+                <ProtectedRoute>
+                  <PlacementPage />
+                </ProtectedRoute>
+              } />
 
               {/* 404 */}
               <Route path="*" element={
