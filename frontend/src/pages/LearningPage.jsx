@@ -163,6 +163,1018 @@ const DOMAIN_DATA = {
     },
     testTopics: ['SEO On-Page', 'Technical SEO', 'Keyword Research', 'Content Strategy', 'Google Ads', 'Meta Ads', 'Analytics', 'Email Marketing', 'Social Media Strategy', 'Conversion Optimization'],
   },
+
+  'Video & Photo Editing': {
+    color: '#ef4444',
+    accent: '#f87171',
+    icon: '🎬',
+    tagline: 'Bring stories to life visually',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Editing Fundamentals",
+            "skills": [
+                  "Cuts",
+                  "Transitions",
+                  "Pacing",
+                  "Storytelling"
+            ],
+            "duration": "1 week",
+            "icon": "✂️",
+            "desc": "Master the basic principles of visual storytelling."
+      },
+      {
+            "phase": "02",
+            "title": "Adobe Premiere Pro",
+            "skills": [
+                  "Timeline",
+                  "Audio Sync",
+                  "Color Correction"
+            ],
+            "duration": "2 weeks",
+            "icon": "🎞️",
+            "desc": "Industry standard video editing software."
+      },
+      {
+            "phase": "03",
+            "title": "After Effects Basics",
+            "skills": [
+                  "Keyframing",
+                  "Motion Graphics",
+                  "Masking"
+            ],
+            "duration": "2 weeks",
+            "icon": "✨",
+            "desc": "Add stunning visual effects and animations."
+      },
+      {
+            "phase": "04",
+            "title": "Photo Retouching",
+            "skills": [
+                  "Lightroom",
+                  "Color Grading",
+                  "Exposure"
+            ],
+            "duration": "1 week",
+            "icon": "📸",
+            "desc": "Professional photo enhancement techniques."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Video & Photo Editing Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Video & Photo Editing Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Video & Photo Editing in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Cinematic Travel Vlog",
+      "description": "Edit a professional travel vlog with color grading, smooth transitions, and sound design.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Assembly & Cut",
+                  "desc": "Organize footage and make initial cuts",
+                  "tasks": [
+                        "Import media",
+                        "Sync audio",
+                        "Rough cut"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Color & Effects",
+                  "desc": "Grade footage and add graphics",
+                  "tasks": [
+                        "Color correction",
+                        "LUT application",
+                        "Title cards"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Sound Design",
+                  "desc": "Mix audio and add SFX",
+                  "tasks": [
+                        "Music selection",
+                        "Audio ducking",
+                        "Foley addition"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Premiere Pro",
+            "1080p Export",
+            "Sound Design"
+      ],
+      "submitFields": [
+            "YouTube Link",
+            "Project File Screenshot"
+      ]
+},
+    testTopics: ["Video Formats","Color Grading Basics","Timeline Management","Audio Mixing"]
+  },
+  'PPT Presentations': {
+    color: '#eab308',
+    accent: '#fde047',
+    icon: '📊',
+    tagline: 'Deliver ideas that captivate',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Storyboarding",
+            "skills": [
+                  "Narrative Arc",
+                  "Audience Analysis"
+            ],
+            "duration": "1 week",
+            "icon": "📝",
+            "desc": "Plan the flow of your presentation."
+      },
+      {
+            "phase": "02",
+            "title": "Slide Design",
+            "skills": [
+                  "Master Slides",
+                  "Typography",
+                  "Alignment"
+            ],
+            "duration": "1 week",
+            "icon": "🎨",
+            "desc": "Create visually appealing and consistent slides."
+      },
+      {
+            "phase": "03",
+            "title": "Advanced Animations",
+            "skills": [
+                  "Morph",
+                  "Custom Paths",
+                  "Triggers"
+            ],
+            "duration": "1 week",
+            "icon": "🚀",
+            "desc": "Use animations to enhance, not distract."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'PPT Presentations Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'PPT Presentations Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'PPT Presentations in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Corporate Pitch Deck",
+      "description": "Design a 10-slide pitch deck for a startup seeking funding.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Outline",
+                  "desc": "Create the narrative structure",
+                  "tasks": [
+                        "Problem/Solution",
+                        "Market Size",
+                        "Business Model"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Visuals",
+                  "desc": "Design custom graphics",
+                  "tasks": [
+                        "Brand colors",
+                        "Charts",
+                        "Infographics"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Animation",
+                  "desc": "Add subtle entrance effects",
+                  "tasks": [
+                        "Slide transitions",
+                        "Element fade-ins"
+                  ]
+            }
+      ],
+      "requirements": [
+            "10+ Slides",
+            "Consistent Master Slide",
+            "Data Visualizations"
+      ],
+      "submitFields": [
+            "Google Slides Link",
+            "PDF Export"
+      ]
+},
+    testTopics: ["Slide Layouts","Color Contrast","Data Visualization","Animation Best Practices"]
+  },
+  'Content Writing': {
+    color: '#8b5cf6',
+    accent: '#a78bfa',
+    icon: '✍️',
+    tagline: 'Words that drive action',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Copywriting Basics",
+            "skills": [
+                  "Headlines",
+                  "Hooks",
+                  "CTA"
+            ],
+            "duration": "1 week",
+            "icon": "🎯",
+            "desc": "Write copy that grabs attention and converts."
+      },
+      {
+            "phase": "02",
+            "title": "SEO Writing",
+            "skills": [
+                  "Keyword Placement",
+                  "Meta Tags",
+                  "Readability"
+            ],
+            "duration": "2 weeks",
+            "icon": "🔍",
+            "desc": "Write articles that rank on Google."
+      },
+      {
+            "phase": "03",
+            "title": "Technical Writing",
+            "skills": [
+                  "Documentation",
+                  "Clarity",
+                  "Formatting"
+            ],
+            "duration": "1 week",
+            "icon": "📚",
+            "desc": "Explain complex concepts simply."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Content Writing Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Content Writing Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Content Writing in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "SEO Blog Strategy",
+      "description": "Write a comprehensive, SEO-optimized 1500-word pillar article.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Research",
+                  "desc": "Keyword and competitor research",
+                  "tasks": [
+                        "Identify target keyword",
+                        "Analyze top 3 competitors"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Drafting",
+                  "desc": "Write the core content",
+                  "tasks": [
+                        "H1/H2 structure",
+                        "Introduction hook",
+                        "Body paragraphs"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Optimization",
+                  "desc": "Apply SEO best practices",
+                  "tasks": [
+                        "Add internal links",
+                        "Write meta description",
+                        "Check keyword density"
+                  ]
+            }
+      ],
+      "requirements": [
+            "1500+ words",
+            "H2/H3 headers",
+            "SEO optimized"
+      ],
+      "submitFields": [
+            "Google Doc Link",
+            "Plagiarism Report Screenshot"
+      ]
+},
+    testTopics: ["SEO Basics","Grammar & Tone","Copywriting Formulas","Content Structure"]
+  },
+  'UI/UX Design': {
+    color: '#06b6d4',
+    accent: '#22d3ee',
+    icon: '✨',
+    tagline: 'Design experiences, not just screens',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "User Research",
+            "skills": [
+                  "Personas",
+                  "User Journeys",
+                  "Interviews"
+            ],
+            "duration": "1 week",
+            "icon": "🧠",
+            "desc": "Understand the users you are designing for."
+      },
+      {
+            "phase": "02",
+            "title": "Wireframing",
+            "skills": [
+                  "Low-Fidelity",
+                  "Information Architecture"
+            ],
+            "duration": "1 week",
+            "icon": "📐",
+            "desc": "Map out the skeleton of the interface."
+      },
+      {
+            "phase": "03",
+            "title": "High-Fidelity UI",
+            "skills": [
+                  "Figma",
+                  "Design Systems",
+                  "Auto-Layout"
+            ],
+            "duration": "2 weeks",
+            "icon": "🎨",
+            "desc": "Create stunning, production-ready interfaces."
+      },
+      {
+            "phase": "04",
+            "title": "Prototyping",
+            "skills": [
+                  "Micro-interactions",
+                  "Transitions",
+                  "User Testing"
+            ],
+            "duration": "1 week",
+            "icon": "🚀",
+            "desc": "Bring your designs to life."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'UI/UX Design Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'UI/UX Design Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'UI/UX Design in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Mobile App Case Study",
+      "description": "Design a complete mobile app from research to interactive prototype.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Discovery",
+                  "desc": "Define the problem",
+                  "tasks": [
+                        "User Personas",
+                        "Problem Statement"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Design",
+                  "desc": "Create UI screens in Figma",
+                  "tasks": [
+                        "Wireframes",
+                        "Style Guide",
+                        "Hi-Fi Screens"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Prototype",
+                  "desc": "Connect the screens",
+                  "tasks": [
+                        "Clickable prototype",
+                        "Micro-interactions"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Figma Prototype",
+            "10+ Screens",
+            "Design System"
+      ],
+      "submitFields": [
+            "Figma Link",
+            "Behance Case Study Link"
+      ]
+},
+    testTopics: ["UX Heuristics","Color & Typography in UI","Figma Basics","Accessibility"]
+  },
+  'Data Science': {
+    color: '#10b981',
+    accent: '#34d399',
+    icon: '🧪',
+    tagline: 'Extract insights from noise',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Python for Data",
+            "skills": [
+                  "Python Basics",
+                  "Pandas",
+                  "NumPy"
+            ],
+            "duration": "2 weeks",
+            "icon": "🐍",
+            "desc": "Learn the core tools for data manipulation."
+      },
+      {
+            "phase": "02",
+            "title": "Data Visualization",
+            "skills": [
+                  "Matplotlib",
+                  "Seaborn",
+                  "Tableau"
+            ],
+            "duration": "1 week",
+            "icon": "📊",
+            "desc": "Tell stories through data graphics."
+      },
+      {
+            "phase": "03",
+            "title": "Machine Learning",
+            "skills": [
+                  "Scikit-Learn",
+                  "Regression",
+                  "Classification"
+            ],
+            "duration": "3 weeks",
+            "icon": "🤖",
+            "desc": "Build predictive models."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Data Science Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Data Science Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Data Science in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Predictive Sales Model",
+      "description": "Clean a dataset and build a machine learning model to predict future sales.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Data Cleaning",
+                  "desc": "Prepare the dataset",
+                  "tasks": [
+                        "Handle missing values",
+                        "Remove outliers"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "EDA",
+                  "desc": "Exploratory Data Analysis",
+                  "tasks": [
+                        "Correlation matrix",
+                        "Distribution plots"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Modeling",
+                  "desc": "Train and evaluate the model",
+                  "tasks": [
+                        "Train/Test split",
+                        "Linear Regression",
+                        "Calculate RMSE"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Jupyter Notebook",
+            "Cleaned Dataset",
+            "Accuracy Metric"
+      ],
+      "submitFields": [
+            "GitHub Repo",
+            "Kaggle Notebook Link"
+      ]
+},
+    testTopics: ["Python Data Structures","Statistics Basics","Data Cleaning","ML Evaluation Metrics"]
+  },
+  'IT Support': {
+    color: '#64748b',
+    accent: '#94a3b8',
+    icon: '🛠️',
+    tagline: 'The backbone of technology',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Hardware Basics",
+            "skills": [
+                  "PC Build",
+                  "Troubleshooting",
+                  "Peripherals"
+            ],
+            "duration": "1 week",
+            "icon": "🖥️",
+            "desc": "Understand internal computer components."
+      },
+      {
+            "phase": "02",
+            "title": "Networking Fundamentals",
+            "skills": [
+                  "IP Addressing",
+                  "DNS",
+                  "Routers"
+            ],
+            "duration": "2 weeks",
+            "icon": "🌐",
+            "desc": "Learn how computers communicate."
+      },
+      {
+            "phase": "03",
+            "title": "OS Administration",
+            "skills": [
+                  "Windows Active Directory",
+                  "Linux CLI"
+            ],
+            "duration": "2 weeks",
+            "icon": "⚙️",
+            "desc": "Manage users and systems."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'IT Support Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'IT Support Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'IT Support in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Virtual Enterprise Network",
+      "description": "Set up a virtual network environment with a domain controller and active directory.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Virtualization",
+                  "desc": "Set up VMs",
+                  "tasks": [
+                        "Install VirtualBox",
+                        "Setup Windows Server VM"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Configuration",
+                  "desc": "Configure Active Directory",
+                  "tasks": [
+                        "Promote to Domain Controller",
+                        "Create Users/Groups"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Networking",
+                  "desc": "Connect clients",
+                  "tasks": [
+                        "Join Windows 10 VM to domain",
+                        "Test connectivity"
+                  ]
+            }
+      ],
+      "requirements": [
+            "VirtualBox/VMWare",
+            "Windows Server OS",
+            "Documentation"
+      ],
+      "submitFields": [
+            "Network Diagram PDF",
+            "Loom Walkthrough Video"
+      ]
+},
+    testTopics: ["Networking OSI Model","Hardware Troubleshooting","Windows Admin","Security Basics"]
+  },
+  'Business Consulting': {
+    color: '#0ea5e9',
+    accent: '#38bdf8',
+    icon: '📈',
+    tagline: 'Strategies that scale businesses',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Market Analysis",
+            "skills": [
+                  "SWOT",
+                  "Competitor Research",
+                  "TAM"
+            ],
+            "duration": "1 week",
+            "icon": "📊",
+            "desc": "Analyze markets and identify opportunities."
+      },
+      {
+            "phase": "02",
+            "title": "Financial Modeling",
+            "skills": [
+                  "Excel",
+                  "P&L Statements",
+                  "Forecasting"
+            ],
+            "duration": "2 weeks",
+            "icon": "💰",
+            "desc": "Understand the numbers behind the business."
+      },
+      {
+            "phase": "03",
+            "title": "Strategy & Execution",
+            "skills": [
+                  "Go-to-Market",
+                  "KPIs",
+                  "Operations"
+            ],
+            "duration": "2 weeks",
+            "icon": "🎯",
+            "desc": "Develop actionable plans for growth."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Business Consulting Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Business Consulting Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Business Consulting in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Go-to-Market Strategy",
+      "description": "Develop a comprehensive GTM strategy for a new SaaS product.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Research",
+                  "desc": "Market analysis",
+                  "tasks": [
+                        "Define Target Persona",
+                        "Competitor Matrix"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Financials",
+                  "desc": "Pricing and costs",
+                  "tasks": [
+                        "Pricing Tier Strategy",
+                        "CAC/LTV Projections"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Distribution",
+                  "desc": "Marketing channels",
+                  "tasks": [
+                        "Sales Funnel Design",
+                        "Channel Strategy"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Strategy Document",
+            "Excel Financial Model",
+            "Pitch Deck"
+      ],
+      "submitFields": [
+            "Google Drive Folder Link",
+            "Presentation Video"
+      ]
+},
+    testTopics: ["Financial Statements","SWOT Analysis","Pricing Strategies","KPI Tracking"]
+  },
+  'Translation': {
+    color: '#14b8a6',
+    accent: '#2dd4bf',
+    icon: '🌐',
+    tagline: 'Bridge language barriers',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Linguistic Fundamentals",
+            "skills": [
+                  "Grammar Nuances",
+                  "Idioms",
+                  "Tone"
+            ],
+            "duration": "1 week",
+            "icon": "📚",
+            "desc": "Master the subtleties of language pairing."
+      },
+      {
+            "phase": "02",
+            "title": "CAT Tools",
+            "skills": [
+                  "Trados",
+                  "MemoQ",
+                  "Translation Memories"
+            ],
+            "duration": "2 weeks",
+            "icon": "💻",
+            "desc": "Use industry-standard translation software."
+      },
+      {
+            "phase": "03",
+            "title": "Localization",
+            "skills": [
+                  "Cultural Adaptation",
+                  "UI Translation",
+                  "Formatting"
+            ],
+            "duration": "1 week",
+            "icon": "🌍",
+            "desc": "Adapt content for local cultural contexts."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Translation Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Translation Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Translation in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Website Localization",
+      "description": "Translate and localize a 5-page e-commerce website interface and product descriptions.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Glossary",
+                  "desc": "Build a term base",
+                  "tasks": [
+                        "Extract key terms",
+                        "Define standard translations"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Translation",
+                  "desc": "Translate core content",
+                  "tasks": [
+                        "Translate UI buttons",
+                        "Translate product copy"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Review",
+                  "desc": "Quality assurance",
+                  "tasks": [
+                        "Cultural check",
+                        "Formatting review"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Bilingual File",
+            "Translation Glossary",
+            "Contextual Adaptation"
+      ],
+      "submitFields": [
+            "Translated Document Link",
+            "Glossary File"
+      ]
+},
+    testTopics: ["Translation Memory","Cultural Localization","Grammar Precision","CAT Tool Features"]
+  },
+  'Voice Over': {
+    color: '#f97316',
+    accent: '#fb923c',
+    icon: '🎙️',
+    tagline: 'Your voice is your instrument',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Vocal Techniques",
+            "skills": [
+                  "Breath Control",
+                  "Pacing",
+                  "Enunciation"
+            ],
+            "duration": "1 week",
+            "icon": "🗣️",
+            "desc": "Train your voice for professional recording."
+      },
+      {
+            "phase": "02",
+            "title": "Audio Engineering",
+            "skills": [
+                  "Mic Placement",
+                  "Audacity",
+                  "EQ/Compression"
+            ],
+            "duration": "2 weeks",
+            "icon": "🎛️",
+            "desc": "Record and edit crystal clear audio."
+      },
+      {
+            "phase": "03",
+            "title": "Niche Styles",
+            "skills": [
+                  "Commercials",
+                  "Audiobooks",
+                  "Animation"
+            ],
+            "duration": "1 week",
+            "icon": "🎭",
+            "desc": "Adapt your voice to different industry needs."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Voice Over Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Voice Over Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Voice Over in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Commercial Voice Demo Reel",
+      "description": "Produce a 60-second professional voice over demo reel containing 3 distinct styles.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Script Prep",
+                  "desc": "Select and mark scripts",
+                  "tasks": [
+                        "Choose 3 scripts",
+                        "Mark breaths and emphasis"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Recording",
+                  "desc": "Record raw audio",
+                  "tasks": [
+                        "Set up acoustic space",
+                        "Record multiple takes"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Editing",
+                  "desc": "Master the final track",
+                  "tasks": [
+                        "Remove breaths",
+                        "Apply EQ/Compression",
+                        "Add background music"
+                  ]
+            }
+      ],
+      "requirements": [
+            "WAV format",
+            "No background noise",
+            "3 distinct voices"
+      ],
+      "submitFields": [
+            "SoundCloud/Drive Audio Link"
+      ]
+},
+    testTopics: ["Microphone Types","Acoustic Treatment","Editing Software","Vocal Health"]
+  },
+  'Other': {
+    color: '#a8a29e',
+    accent: '#d6d3d1',
+    icon: '🔗',
+    tagline: 'Forge your own unique path',
+    roadmap: [
+      {
+            "phase": "01",
+            "title": "Foundations",
+            "skills": [
+                  "Core Principles",
+                  "Industry Standards",
+                  "Tools"
+            ],
+            "duration": "1 week",
+            "icon": "🧱",
+            "desc": "Establish the groundwork for your specific skill."
+      },
+      {
+            "phase": "02",
+            "title": "Specialization",
+            "skills": [
+                  "Advanced Techniques",
+                  "Niche Strategies",
+                  "Workflows"
+            ],
+            "duration": "2 weeks",
+            "icon": "🎯",
+            "desc": "Deepen your knowledge in your chosen field."
+      },
+      {
+            "phase": "03",
+            "title": "Portfolio Building",
+            "skills": [
+                  "Showcasing Work",
+                  "Case Studies",
+                  "Networking"
+            ],
+            "duration": "1 week",
+            "icon": "💼",
+            "desc": "Prepare to show your skills to the world."
+      }
+],
+    videos: {
+      Telugu: [
+        { id: 'vt1', title: 'Other Masterclass (Telugu)', channel: 'Tech Telugu', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '2h 15m', rating: 4.8 }
+      ],
+      English: [
+        { id: 've1', title: 'Other Full Course', channel: 'Pro Academy', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 30m', rating: 4.9 }
+      ],
+      Hindi: [
+        { id: 'vh1', title: 'Other in Hindi', channel: 'Learn Hindi', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '3h', rating: 4.7 }
+      ]
+    },
+    project: {
+      "title": "Custom Portfolio Piece",
+      "description": "Design and execute a capstone project that demonstrates your unique expertise.",
+      "steps": [
+            {
+                  "step": 1,
+                  "title": "Proposal",
+                  "desc": "Define your project",
+                  "tasks": [
+                        "Write project scope",
+                        "Define success metrics"
+                  ]
+            },
+            {
+                  "step": 2,
+                  "title": "Execution",
+                  "desc": "Build the project",
+                  "tasks": [
+                        "Draft version 1",
+                        "Refine and polish"
+                  ]
+            },
+            {
+                  "step": 3,
+                  "title": "Presentation",
+                  "desc": "Document the process",
+                  "tasks": [
+                        "Write case study",
+                        "Create visual assets"
+                  ]
+            }
+      ],
+      "requirements": [
+            "Original Work",
+            "Professional Presentation",
+            "Process Documentation"
+      ],
+      "submitFields": [
+            "Portfolio Link",
+            "Project Documentation Link"
+      ]
+},
+    testTopics: ["Core Concepts","Industry Best Practices","Tool Mastery","Problem Solving"]
+  },
 };
 
 // Generate 80 questions for a domain
@@ -504,6 +1516,67 @@ It's a master plan for what content you will create, who you are creating it for
 ### ⚙️ Real Workings (Industry Application)
 Major SaaS companies (like HubSpot or Mailchimp) build multi-million dollar empires purely on content strategy. They map their content to the "Buyer's Journey". First, they capture organic traffic through helpful SEO blog posts. Inside the blog post, they offer a free template in exchange for an email. Once the email is captured, they use an automated email marketing sequence to educate the prospect further, ultimately pitching their paid software subscription.`
   }
+,
+  'Video & Photo Editing': {
+    'Video Formats': `## Video Formats\n\n### 📖 Definition\nVideo Formats is an essential concept in Video & Photo Editing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Video Formats as the foundation of your work. Just like a builder needs a blueprint, a professional needs Video Formats to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Video Formats is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Color Grading Basics': `## Color Grading Basics\n\n### 📖 Definition\nColor Grading Basics is an essential concept in Video & Photo Editing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Color Grading Basics as the foundation of your work. Just like a builder needs a blueprint, a professional needs Color Grading Basics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Color Grading Basics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Timeline Management': `## Timeline Management\n\n### 📖 Definition\nTimeline Management is an essential concept in Video & Photo Editing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Timeline Management as the foundation of your work. Just like a builder needs a blueprint, a professional needs Timeline Management to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Timeline Management is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Audio Mixing': `## Audio Mixing\n\n### 📖 Definition\nAudio Mixing is an essential concept in Video & Photo Editing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Audio Mixing as the foundation of your work. Just like a builder needs a blueprint, a professional needs Audio Mixing to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Audio Mixing is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'PPT Presentations': {
+    'Slide Layouts': `## Slide Layouts\n\n### 📖 Definition\nSlide Layouts is an essential concept in PPT Presentations that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Slide Layouts as the foundation of your work. Just like a builder needs a blueprint, a professional needs Slide Layouts to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Slide Layouts is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Color Contrast': `## Color Contrast\n\n### 📖 Definition\nColor Contrast is an essential concept in PPT Presentations that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Color Contrast as the foundation of your work. Just like a builder needs a blueprint, a professional needs Color Contrast to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Color Contrast is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Data Visualization': `## Data Visualization\n\n### 📖 Definition\nData Visualization is an essential concept in PPT Presentations that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Data Visualization as the foundation of your work. Just like a builder needs a blueprint, a professional needs Data Visualization to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Data Visualization is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Animation Best Practices': `## Animation Best Practices\n\n### 📖 Definition\nAnimation Best Practices is an essential concept in PPT Presentations that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Animation Best Practices as the foundation of your work. Just like a builder needs a blueprint, a professional needs Animation Best Practices to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Animation Best Practices is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Content Writing': {
+    'SEO Basics': `## SEO Basics\n\n### 📖 Definition\nSEO Basics is an essential concept in Content Writing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of SEO Basics as the foundation of your work. Just like a builder needs a blueprint, a professional needs SEO Basics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, SEO Basics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Grammar & Tone': `## Grammar & Tone\n\n### 📖 Definition\nGrammar & Tone is an essential concept in Content Writing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Grammar & Tone as the foundation of your work. Just like a builder needs a blueprint, a professional needs Grammar & Tone to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Grammar & Tone is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Copywriting Formulas': `## Copywriting Formulas\n\n### 📖 Definition\nCopywriting Formulas is an essential concept in Content Writing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Copywriting Formulas as the foundation of your work. Just like a builder needs a blueprint, a professional needs Copywriting Formulas to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Copywriting Formulas is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Content Structure': `## Content Structure\n\n### 📖 Definition\nContent Structure is an essential concept in Content Writing that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Content Structure as the foundation of your work. Just like a builder needs a blueprint, a professional needs Content Structure to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Content Structure is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'UI/UX Design': {
+    'UX Heuristics': `## UX Heuristics\n\n### 📖 Definition\nUX Heuristics is an essential concept in UI/UX Design that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of UX Heuristics as the foundation of your work. Just like a builder needs a blueprint, a professional needs UX Heuristics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, UX Heuristics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Color & Typography in UI': `## Color & Typography in UI\n\n### 📖 Definition\nColor & Typography in UI is an essential concept in UI/UX Design that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Color & Typography in UI as the foundation of your work. Just like a builder needs a blueprint, a professional needs Color & Typography in UI to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Color & Typography in UI is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Figma Basics': `## Figma Basics\n\n### 📖 Definition\nFigma Basics is an essential concept in UI/UX Design that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Figma Basics as the foundation of your work. Just like a builder needs a blueprint, a professional needs Figma Basics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Figma Basics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Accessibility': `## Accessibility\n\n### 📖 Definition\nAccessibility is an essential concept in UI/UX Design that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Accessibility as the foundation of your work. Just like a builder needs a blueprint, a professional needs Accessibility to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Accessibility is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Data Science': {
+    'Python Data Structures': `## Python Data Structures\n\n### 📖 Definition\nPython Data Structures is an essential concept in Data Science that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Python Data Structures as the foundation of your work. Just like a builder needs a blueprint, a professional needs Python Data Structures to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Python Data Structures is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Statistics Basics': `## Statistics Basics\n\n### 📖 Definition\nStatistics Basics is an essential concept in Data Science that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Statistics Basics as the foundation of your work. Just like a builder needs a blueprint, a professional needs Statistics Basics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Statistics Basics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Data Cleaning': `## Data Cleaning\n\n### 📖 Definition\nData Cleaning is an essential concept in Data Science that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Data Cleaning as the foundation of your work. Just like a builder needs a blueprint, a professional needs Data Cleaning to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Data Cleaning is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'ML Evaluation Metrics': `## ML Evaluation Metrics\n\n### 📖 Definition\nML Evaluation Metrics is an essential concept in Data Science that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of ML Evaluation Metrics as the foundation of your work. Just like a builder needs a blueprint, a professional needs ML Evaluation Metrics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, ML Evaluation Metrics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'IT Support': {
+    'Networking OSI Model': `## Networking OSI Model\n\n### 📖 Definition\nNetworking OSI Model is an essential concept in IT Support that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Networking OSI Model as the foundation of your work. Just like a builder needs a blueprint, a professional needs Networking OSI Model to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Networking OSI Model is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Hardware Troubleshooting': `## Hardware Troubleshooting\n\n### 📖 Definition\nHardware Troubleshooting is an essential concept in IT Support that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Hardware Troubleshooting as the foundation of your work. Just like a builder needs a blueprint, a professional needs Hardware Troubleshooting to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Hardware Troubleshooting is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Windows Admin': `## Windows Admin\n\n### 📖 Definition\nWindows Admin is an essential concept in IT Support that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Windows Admin as the foundation of your work. Just like a builder needs a blueprint, a professional needs Windows Admin to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Windows Admin is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Security Basics': `## Security Basics\n\n### 📖 Definition\nSecurity Basics is an essential concept in IT Support that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Security Basics as the foundation of your work. Just like a builder needs a blueprint, a professional needs Security Basics to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Security Basics is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Business Consulting': {
+    'Financial Statements': `## Financial Statements\n\n### 📖 Definition\nFinancial Statements is an essential concept in Business Consulting that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Financial Statements as the foundation of your work. Just like a builder needs a blueprint, a professional needs Financial Statements to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Financial Statements is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'SWOT Analysis': `## SWOT Analysis\n\n### 📖 Definition\nSWOT Analysis is an essential concept in Business Consulting that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of SWOT Analysis as the foundation of your work. Just like a builder needs a blueprint, a professional needs SWOT Analysis to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, SWOT Analysis is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Pricing Strategies': `## Pricing Strategies\n\n### 📖 Definition\nPricing Strategies is an essential concept in Business Consulting that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Pricing Strategies as the foundation of your work. Just like a builder needs a blueprint, a professional needs Pricing Strategies to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Pricing Strategies is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'KPI Tracking': `## KPI Tracking\n\n### 📖 Definition\nKPI Tracking is an essential concept in Business Consulting that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of KPI Tracking as the foundation of your work. Just like a builder needs a blueprint, a professional needs KPI Tracking to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, KPI Tracking is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Translation': {
+    'Translation Memory': `## Translation Memory\n\n### 📖 Definition\nTranslation Memory is an essential concept in Translation that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Translation Memory as the foundation of your work. Just like a builder needs a blueprint, a professional needs Translation Memory to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Translation Memory is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Cultural Localization': `## Cultural Localization\n\n### 📖 Definition\nCultural Localization is an essential concept in Translation that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Cultural Localization as the foundation of your work. Just like a builder needs a blueprint, a professional needs Cultural Localization to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Cultural Localization is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Grammar Precision': `## Grammar Precision\n\n### 📖 Definition\nGrammar Precision is an essential concept in Translation that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Grammar Precision as the foundation of your work. Just like a builder needs a blueprint, a professional needs Grammar Precision to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Grammar Precision is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'CAT Tool Features': `## CAT Tool Features\n\n### 📖 Definition\nCAT Tool Features is an essential concept in Translation that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of CAT Tool Features as the foundation of your work. Just like a builder needs a blueprint, a professional needs CAT Tool Features to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, CAT Tool Features is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Voice Over': {
+    'Microphone Types': `## Microphone Types\n\n### 📖 Definition\nMicrophone Types is an essential concept in Voice Over that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Microphone Types as the foundation of your work. Just like a builder needs a blueprint, a professional needs Microphone Types to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Microphone Types is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Acoustic Treatment': `## Acoustic Treatment\n\n### 📖 Definition\nAcoustic Treatment is an essential concept in Voice Over that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Acoustic Treatment as the foundation of your work. Just like a builder needs a blueprint, a professional needs Acoustic Treatment to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Acoustic Treatment is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Editing Software': `## Editing Software\n\n### 📖 Definition\nEditing Software is an essential concept in Voice Over that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Editing Software as the foundation of your work. Just like a builder needs a blueprint, a professional needs Editing Software to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Editing Software is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Vocal Health': `## Vocal Health\n\n### 📖 Definition\nVocal Health is an essential concept in Voice Over that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Vocal Health as the foundation of your work. Just like a builder needs a blueprint, a professional needs Vocal Health to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Vocal Health is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
+  'Other': {
+    'Core Concepts': `## Core Concepts\n\n### 📖 Definition\nCore Concepts is an essential concept in Other that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Core Concepts as the foundation of your work. Just like a builder needs a blueprint, a professional needs Core Concepts to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Core Concepts is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Industry Best Practices': `## Industry Best Practices\n\n### 📖 Definition\nIndustry Best Practices is an essential concept in Other that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Industry Best Practices as the foundation of your work. Just like a builder needs a blueprint, a professional needs Industry Best Practices to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Industry Best Practices is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Tool Mastery': `## Tool Mastery\n\n### 📖 Definition\nTool Mastery is an essential concept in Other that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Tool Mastery as the foundation of your work. Just like a builder needs a blueprint, a professional needs Tool Mastery to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Tool Mastery is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+    'Problem Solving': `## Problem Solving\n\n### 📖 Definition\nProblem Solving is an essential concept in Other that involves understanding the core principles and industry standards.\n\n### 💡 Meaning (In Simple Terms)\nThink of Problem Solving as the foundation of your work. Just like a builder needs a blueprint, a professional needs Problem Solving to ensure their work is robust, scalable, and effective.\n\n### 📝 Examples\n- **Example 1**: Implementing standard practices.\n- **Example 2**: Optimizing workflows for better efficiency.\n- **Example 3**: Leveraging modern tools to achieve results.\n\n### ⚙️ Real Workings (Industry Application)\nIn real-world enterprise environments at major agencies, Problem Solving is used daily to streamline operations, enhance user experiences, and drive measurable ROI. Professionals rely on these exact techniques to deliver high-quality, production-ready assets.`,
+  },
 };
 // ─────────────────────────────────────────────
 // MASTERCLASS NOTES COMPONENT (Manual Replacment for AI)
