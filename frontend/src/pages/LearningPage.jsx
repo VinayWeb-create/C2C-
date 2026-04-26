@@ -2382,12 +2382,12 @@ const LearningPage = () => {
         <div className="p-4 border-t border-white/8">
           <button
             onClick={() => {
-              if (hasBadge) { setDomainSelected(false); setSelectedDomain(null); }
+              if (hasBadge || user?.role === 'admin') { setDomainSelected(false); setSelectedDomain(null); }
               else toast.error('Earn your badge first to switch domains');
             }}
-            className="w-full text-left text-xs font-black uppercase tracking-widest text-gray-600 hover:text-gray-400 transition py-2 px-2"
+            className={`w-full text-left text-xs font-black uppercase tracking-widest transition py-2 px-2 ${(hasBadge || user?.role === 'admin') ? 'text-gray-400 hover:text-white' : 'text-gray-600'}`}
           >
-            {hasBadge ? '← Switch Domain' : '🔒 Domain Locked'}
+            {(hasBadge || user?.role === 'admin') ? (user?.role === 'admin' ? '⚡ Admin Switch' : '← Switch Domain') : '🔒 Domain Locked'}
           </button>
         </div>
       </aside>
