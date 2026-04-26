@@ -51,19 +51,19 @@ const DOMAIN_DATA = {
     ],
     videos: {
       Telugu: [
-        { id: 'wt1', title: 'HTML & CSS Full Course Telugu', channel: 'Telugu Coders', url: 'https://www.youtube.com/embed/G3e-cpL7ofc', thumbnail: 'https://i.ytimg.com/vi/G3e-cpL7ofc/maxresdefault.jpg', duration: '4h 32m', rating: 4.9 },
-        { id: 'wt2', title: 'JavaScript Telugu Complete', channel: 'Code with Mano', url: 'https://www.youtube.com/embed/W6NZ1pNrvz0', thumbnail: 'https://i.ytimg.com/vi/W6NZ1pNrvz0/maxresdefault.jpg', duration: '6h 18m', rating: 4.8 },
-        { id: 'wt3', title: 'React JS Telugu Tutorial', channel: 'Vizag Coders', url: 'https://www.youtube.com/embed/w7ejDZ8SWv8', thumbnail: 'https://i.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg', duration: '5h 02m', rating: 4.7 },
+        { id: 'wt1', title: 'HTML & CSS Full Course Telugu', channel: 'Telugu Coders', url: 'https://www.youtube.com/embed/R_vC18l_18Q', thumbnail: 'https://i.ytimg.com/vi/R_vC18l_18Q/maxresdefault.jpg', duration: '4h 32m', rating: 4.9 },
+        { id: 'wt2', title: 'JavaScript Telugu Complete', channel: 'Code with Mano', url: 'https://www.youtube.com/embed/b1V8P6JjG0g', thumbnail: 'https://i.ytimg.com/vi/b1V8P6JjG0g/maxresdefault.jpg', duration: '6h 18m', rating: 4.8 },
+        { id: 'wt3', title: 'React JS Telugu Tutorial', channel: 'Vizag Coders', url: 'https://www.youtube.com/embed/1pE9SIfBvHk', thumbnail: 'https://i.ytimg.com/vi/1pE9SIfBvHk/maxresdefault.jpg', duration: '5h 02m', rating: 4.7 },
       ],
       English: [
-        { id: 'we1', title: 'The Odin Project - Full Stack', channel: 'Traversy Media', url: 'https://www.youtube.com/embed/w7ejDZ8SWv8', thumbnail: 'https://i.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg', duration: '8h 14m', rating: 4.9 },
-        { id: 'we2', title: 'JavaScript Mastery', channel: 'JS Mastery', url: 'https://www.youtube.com/embed/G3e-cpL7ofc', thumbnail: 'https://i.ytimg.com/vi/G3e-cpL7ofc/maxresdefault.jpg', duration: '7h 55m', rating: 4.9 },
-        { id: 'we3', title: 'React 18 + Next.js Complete', channel: 'Fireship', url: 'https://www.youtube.com/embed/W6NZ1pNrvz0', thumbnail: 'https://i.ytimg.com/vi/W6NZ1pNrvz0/maxresdefault.jpg', duration: '3h 40m', rating: 4.8 },
+        { id: 'we1', title: 'The Odin Project - Full Stack', channel: 'Traversy Media', url: 'https://www.youtube.com/embed/mU6anWqZJcc', thumbnail: 'https://i.ytimg.com/vi/mU6anWqZJcc/maxresdefault.jpg', duration: '8h 14m', rating: 4.9 },
+        { id: 'we2', title: 'JavaScript Mastery', channel: 'JS Mastery', url: 'https://www.youtube.com/embed/W6NZ1pNrvz0', thumbnail: 'https://i.ytimg.com/vi/W6NZ1pNrvz0/maxresdefault.jpg', duration: '7h 55m', rating: 4.9 },
+        { id: 'we3', title: 'React 18 + Next.js Complete', channel: 'Fireship', url: 'https://www.youtube.com/embed/bMknfKXIFA8', thumbnail: 'https://i.ytimg.com/vi/bMknfKXIFA8/maxresdefault.jpg', duration: '3h 40m', rating: 4.8 },
       ],
       Hindi: [
         { id: 'wh1', title: 'Complete Web Dev Hindi', channel: 'CodeWithHarry', url: 'https://www.youtube.com/embed/G3e-cpL7ofc', thumbnail: 'https://i.ytimg.com/vi/G3e-cpL7ofc/maxresdefault.jpg', duration: '12h', rating: 4.9 },
-        { id: 'wh2', title: 'React Tutorial Hindi', channel: 'Apna College', url: 'https://www.youtube.com/embed/W6NZ1pNrvz0', thumbnail: 'https://i.ytimg.com/vi/W6NZ1pNrvz0/maxresdefault.jpg', duration: '6h 30m', rating: 4.8 },
-        { id: 'wh3', title: 'MERN Stack Hindi', channel: 'Thapa Technical', url: 'https://www.youtube.com/embed/w7ejDZ8SWv8', thumbnail: 'https://i.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg', duration: '9h 20m', rating: 4.7 },
+        { id: 'wh2', title: 'JavaScript Tutorial Hindi', channel: 'Apna College', url: 'https://www.youtube.com/embed/hKB-YGF14SY', thumbnail: 'https://i.ytimg.com/vi/hKB-YGF14SY/maxresdefault.jpg', duration: '6h 30m', rating: 4.8 },
+        { id: 'wh3', title: 'React JS Hindi', channel: 'Thapa Technical', url: 'https://www.youtube.com/embed/eILUmCJhl64', thumbnail: 'https://i.ytimg.com/vi/eILUmCJhl64/maxresdefault.jpg', duration: '9h 20m', rating: 4.7 },
       ],
     },
     project: {
@@ -97,15 +97,15 @@ const DOMAIN_DATA = {
     ],
     videos: {
       Telugu: [
-        { id: 'gt1', title: 'Graphic Design Full Course Telugu', channel: 'Design Wali', url: 'https://www.youtube.com/embed/IyR_uYsRdPs', thumbnail: 'https://i.ytimg.com/vi/IyR_uYsRdPs/maxresdefault.jpg', duration: '6h', rating: 4.8 },
-        { id: 'gt2', title: 'Photoshop Telugu Tutorial', channel: 'Creative Vizag', url: 'https://www.youtube.com/embed/v_m1zYJb2fI', thumbnail: 'https://i.ytimg.com/vi/v_m1zYJb2fI/maxresdefault.jpg', duration: '4h 20m', rating: 4.7 },
+        { id: 'gt1', title: 'Graphic Design Full Course Telugu', channel: 'Design Wali', url: 'https://www.youtube.com/embed/gA3PqB6N9yY', thumbnail: 'https://i.ytimg.com/vi/gA3PqB6N9yY/maxresdefault.jpg', duration: '6h', rating: 4.8 },
+        { id: 'gt2', title: 'Photoshop Telugu Tutorial', channel: 'Creative Vizag', url: 'https://www.youtube.com/embed/4VvE0lX03B8', thumbnail: 'https://i.ytimg.com/vi/4VvE0lX03B8/maxresdefault.jpg', duration: '4h 20m', rating: 4.7 },
       ],
       English: [
-        { id: 'ge1', title: 'Adobe Illustrator Master Class', channel: 'Envato Tuts+', url: 'https://www.youtube.com/embed/IyR_uYsRdPs', thumbnail: 'https://i.ytimg.com/vi/IyR_uYsRdPs/maxresdefault.jpg', duration: '5h 40m', rating: 4.9 },
-        { id: 'ge2', title: 'Logo Design Masterclass', channel: 'Satori Graphics', url: 'https://www.youtube.com/embed/v_m1zYJb2fI', thumbnail: 'https://i.ytimg.com/vi/v_m1zYJb2fI/maxresdefault.jpg', duration: '3h 15m', rating: 4.8 },
+        { id: 'ge1', title: 'Adobe Illustrator Master Class', channel: 'Envato Tuts+', url: 'https://www.youtube.com/embed/Ib8UBwu3y5Y', thumbnail: 'https://i.ytimg.com/vi/Ib8UBwu3y5Y/maxresdefault.jpg', duration: '5h 40m', rating: 4.9 },
+        { id: 'ge2', title: 'Logo Design Masterclass', channel: 'Satori Graphics', url: 'https://www.youtube.com/embed/Z2mE-d6T4A4', thumbnail: 'https://i.ytimg.com/vi/Z2mE-d6T4A4/maxresdefault.jpg', duration: '3h 15m', rating: 4.8 },
       ],
       Hindi: [
-        { id: 'gh1', title: 'Graphic Design Complete Hindi', channel: 'Design with Vaibhav', url: 'https://www.youtube.com/embed/IyR_uYsRdPs', thumbnail: 'https://i.ytimg.com/vi/IyR_uYsRdPs/maxresdefault.jpg', duration: '7h', rating: 4.8 },
+        { id: 'gh1', title: 'Graphic Design Complete Hindi', channel: 'Design with Vaibhav', url: 'https://www.youtube.com/embed/v_m1zYJb2fI', thumbnail: 'https://i.ytimg.com/vi/v_m1zYJb2fI/maxresdefault.jpg', duration: '7h', rating: 4.8 },
       ],
     },
     project: {
@@ -138,14 +138,14 @@ const DOMAIN_DATA = {
     ],
     videos: {
       Telugu: [
-        { id: 'dt1', title: 'Digital Marketing Telugu Complete', channel: 'Marketing Wala', url: 'https://www.youtube.com/embed/1_MHLPps-8M', thumbnail: 'https://i.ytimg.com/vi/1_MHLPps-8M/maxresdefault.jpg', duration: '5h', rating: 4.8 },
+        { id: 'dt1', title: 'Digital Marketing Telugu Complete', channel: 'Marketing Wala', url: 'https://www.youtube.com/embed/5O1l2W0k_zI', thumbnail: 'https://i.ytimg.com/vi/5O1l2W0k_zI/maxresdefault.jpg', duration: '5h', rating: 4.8 },
       ],
       English: [
-        { id: 'de1', title: 'SEO Full Course 2024', channel: 'Neil Patel', url: 'https://www.youtube.com/embed/1_MHLPps-8M', thumbnail: 'https://i.ytimg.com/vi/1_MHLPps-8M/maxresdefault.jpg', duration: '4h 20m', rating: 4.9 },
+        { id: 'de1', title: 'SEO Full Course 2024', channel: 'Neil Patel', url: 'https://www.youtube.com/embed/DvwS7cV9Pb8', thumbnail: 'https://i.ytimg.com/vi/DvwS7cV9Pb8/maxresdefault.jpg', duration: '4h 20m', rating: 4.9 },
         { id: 'de2', title: 'Google Ads Masterclass', channel: 'Isaac Rudansky', url: 'https://www.youtube.com/embed/1_MHLPps-8M', thumbnail: 'https://i.ytimg.com/vi/1_MHLPps-8M/maxresdefault.jpg', duration: '6h', rating: 4.8 },
       ],
       Hindi: [
-        { id: 'dh1', title: 'Digital Marketing Hindi', channel: 'WsCubeTech', url: 'https://www.youtube.com/embed/1_MHLPps-8M', thumbnail: 'https://i.ytimg.com/vi/1_MHLPps-8M/maxresdefault.jpg', duration: '8h', rating: 4.9 },
+        { id: 'dh1', title: 'Digital Marketing Hindi', channel: 'WsCubeTech', url: 'https://www.youtube.com/embed/nHgX2E1-QYc', thumbnail: 'https://i.ytimg.com/vi/nHgX2E1-QYc/maxresdefault.jpg', duration: '8h', rating: 4.9 },
       ],
     },
     project: {
