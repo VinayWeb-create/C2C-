@@ -22,7 +22,7 @@ import {
   ChevronRightIcon, ChevronDownIcon, FunnelIcon,
   MagnifyingGlassIcon, ClockIcon, CheckBadgeIcon,
   RocketLaunchIcon, LightBulbIcon, FireIcon,
-  Bars3BottomLeftIcon, XMarkIcon,
+  Bars3BottomLeftIcon, XMarkIcon, DocumentTextIcon as OutlineDocumentTextIcon
 } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
@@ -311,246 +311,200 @@ const RoadmapTimeline = ({ roadmap, domainColor }) => {
 // ─────────────────────────────────────────────
 const MANUAL_NOTES = {
   'Web Development': {
-    'HTML5 Semantic': `## Overview
-Semantic HTML is the foundation of modern web development. It uses tags that clearly describe their meaning to both the browser and the developer.
+    'HTML5 Semantic': `## HTML5 Semantic
 
-## Core Concepts
-- **Structural Tags**: Use <header>, <nav>, <main>, <article>, <section>, and <footer> instead of generic <div>s.
-- **Accessibility (A11y)**: Semantic tags help screen readers understand the page structure, making your site usable for everyone.
-- **SEO Benefits**: Search engines prioritize semantic content as it helps them index your site's hierarchy more accurately.
-- **Form Elements**: Always use <label> for inputs and <button type="submit"> for form submissions.
+### 📖 Definition
+Semantic HTML refers to the use of HTML markup that reinforces the semantics, or meaning, of the information in web pages and web applications rather than merely defining its presentation or look.
 
-## Key Tools & Technologies
-- W3C Validator (Check your markup)
-- Lighthouse (Audit accessibility)
-- Screen Readers (NVDA, VoiceOver)
+### 💡 Meaning (In Simple Terms)
+Instead of using generic tags like \`<div>\` or \`<span>\` for every part of your website, you use tags that actually describe what the content is—like \`<header>\` for the top part, \`<article>\` for a blog post, or \`<footer>\` for the bottom. This helps browsers, search engines, and screen readers understand your page perfectly.
 
-## Common Interview Questions
-1. **Why use <section> instead of <div>?** Section has semantic meaning (a thematic grouping of content), whereas div is a generic container for styling.
-2. **What is ARIA?** Accessible Rich Internet Applications - a set of attributes that help make web content more accessible.
+### 📝 Examples
+- **<nav>** for your main navigation menu.
+- **<main>** to wrap the primary content of the page.
+- **<section>** to divide your page into thematic groupings (e.g., "Features", "Pricing", "Testimonials").
+- **<time>** to display a date in a machine-readable format.
 
-## Pro Tips
-- Never use <b> or <i>; use <strong> or <em> for emphasis.
-- Use one <h1> per page for optimal SEO.
-- Always add "alt" attributes to images.`,
-    'CSS Flexbox/Grid': `## Overview
-Flexbox and Grid are the two pillars of modern CSS layout, replacing old float and table-based hacks.
+### ⚙️ Real Workings (Industry Application)
+In the industry, semantic HTML is the first step toward perfect SEO and Web Accessibility (A11y). When Google's web crawlers scan an e-commerce site, they prioritize content wrapped in \`<main>\` over content in an \`<aside>\`. For visually impaired users, a screen reader uses semantic tags to skip past navigation menus and read the actual article immediately.`,
 
-## Core Concepts
-- **Flexbox (1D)**: Best for rows OR columns. Key properties: justify-content, align-items, flex-grow.
-- **CSS Grid (2D)**: Best for complex layouts with both rows AND columns. Use grid-template-areas for readability.
-- **Responsive Design**: Use Media Queries (@media) alongside Flex/Grid for mobile-first layouts.
-- **Box Model**: Understand padding, border, and margin to avoid layout shifts.
+    'CSS Flexbox/Grid': `## CSS Flexbox/Grid
 
-## Key Tools & Technologies
-- Flexbox Froggy (Learning game)
-- CSS Grid Garden
-- Browser DevTools (Grid/Flex overlays)
+### 📖 Definition
+Flexbox (Flexible Box Layout) is a 1-dimensional CSS layout module designed for laying out items in a row or column. CSS Grid Layout is a 2-dimensional grid-based layout system, optimizing complex web layouts involving both rows and columns.
 
-## Common Interview Questions
-1. **Difference between Flexbox and Grid?** Flexbox is for one dimension (linear), Grid is for two dimensions (layout).
-2. **What is 'gap'?** A modern property to add space between items in both Flex and Grid.
+### 💡 Meaning (In Simple Terms)
+Flexbox is like aligning items along a single straight line—you can push them apart, center them, or stretch them. Grid is like drawing a spreadsheet or a table on your screen, allowing you to place elements exactly into specific rows and columns. 
 
-## Pro Tips
-- Use 'gap' instead of margins for consistent spacing.
-- Master 'flex: 1' to create flexible columns effortlessly.
-- Use CSS Variables for theme colors.`,
-    'JavaScript ES6+': `## Overview
-Modern JavaScript (ES6+) transformed the language into a powerful, professional tool for both frontend and backend.
+### 📝 Examples
+- **Flexbox**: Centering a logo and navigation links horizontally in a header (\`display: flex; justify-content: space-between;\`).
+- **Grid**: Building a Pinterest-style photo gallery or a complex dashboard with a sidebar, header, and main content area (\`display: grid; grid-template-columns: 250px 1fr;\`).
 
-## Core Concepts
-- **Arrow Functions**: Concise syntax and lexical 'this' binding.
-- **Destructuring**: Extract data from arrays and objects cleanly.
-- **Promises & Async/Await**: The standard for handling asynchronous operations without "callback hell."
-- **Modules**: Use 'import' and 'export' to organize your code into reusable files.
+### ⚙️ Real Workings (Industry Application)
+Professional frontend developers use a combination of both. Grid is used for the overall page architecture (the macro layout), ensuring the sidebar and main content resize gracefully on tablets. Flexbox is used inside those grid sections (the micro layout) to perfectly align icons, text, and buttons within individual cards or navigation bars.`,
 
-## Key Tools & Technologies
-- Babel (Transpiler)
-- ESLint (Code quality)
-- Node.js (Runtime)
+    'JavaScript ES6+': `## JavaScript ES6+
 
-## Common Interview Questions
-1. **Difference between let, const, and var?** let/const are block-scoped; var is function-scoped. Use const by default.
-2. **What is a Closure?** A function that remembers its outer variables even after the outer function has finished.
+### 📖 Definition
+ECMAScript 6 (ES6), officially known as ECMAScript 2015, was a major update to the JavaScript language that introduced significant new syntax for writing complex applications, including let/const, arrow functions, classes, and promises. ES6+ refers to all modern updates since 2015.
 
-## Pro Tips
-- Use Optional Chaining (user?.profile) to prevent 'undefined' crashes.
-- Master Array methods: .map(), .filter(), and .reduce().
-- Always use === instead of ==.`,
-    'React Hooks': `## Overview
-Hooks allow you to use state and other React features in functional components, making code cleaner and more reusable.
+### 💡 Meaning (In Simple Terms)
+JavaScript used to be messy and difficult to organize. ES6 introduced modern, clean shortcuts that make coding faster, safer, and much easier to read. It brought JavaScript up to par with other powerful programming languages.
 
-## Core Concepts
-- **useState**: For managing local component state.
-- **useEffect**: For side effects (API calls, subscriptions, DOM updates).
-- **useContext**: For global state without "prop drilling."
-- **useMemo/useCallback**: For performance optimization by memoizing values and functions.
+### 📝 Examples
+- **Arrow Functions**: \`const add = (a, b) => a + b;\` instead of writing \`function add(a, b) { return a + b; }\`.
+- **Destructuring**: \`const { name, age } = user;\` instead of \`const name = user.name; const age = user.age;\`.
+- **Template Literals**: \`Hello, \${name}!\` instead of \`"Hello, " + name + "!"\`.
 
-## Key Tools & Technologies
-- React DevTools (Browser extension)
-- Vite (Fastest build tool)
-- Zustand (Simple state management)
+### ⚙️ Real Workings (Industry Application)
+Modern frameworks like React, Vue, and Angular rely entirely on ES6+ features. In a real-world enterprise app, developers use ES6 \`import/export\` modules to split thousands of lines of code into small, manageable files. They use \`async/await\` to fetch user data from a server without freezing the entire webpage.`,
 
-## Common Interview Questions
-1. **Rules of Hooks?** Only call hooks at the top level; only call them from React functions.
-2. **When to use useEffect?** When you need to sync your component with an external system (like an API).
+    'React Hooks': `## React Hooks
 
-## Pro Tips
-- Keep your useEffect dependency arrays accurate to avoid stale closures.
-- Split large components into smaller, hook-powered sub-components.`,
-    'Node.js/Express': `## Overview
-Node.js allows you to run JavaScript on the server, and Express is the minimalist framework that makes building APIs simple.
+### 📖 Definition
+React Hooks are functions introduced in React 16.8 that allow developers to "hook into" React state and lifecycle features from functional components, eliminating the need for class-based components.
 
-## Core Concepts
-- **Middleware**: Functions that process requests before they reach the route handler (e.g., Auth, Logging).
-- **Routing**: Organizing your API endpoints (GET, POST, PUT, DELETE).
-- **Environment Variables**: Using .env to store secrets like Database URLs and API keys.
-- **Error Handling**: Centralized catch blocks to prevent server crashes.
+### 💡 Meaning (In Simple Terms)
+Before Hooks, if you wanted a React component to remember data (like a counter) or do something after it loaded (like fetch data), you had to write bulky, complex "Class" code. Hooks let you do these things using simple, lightweight functions.
 
-## Key Tools & Technologies
-- Nodemon (Auto-restart)
-- Postman (API Testing)
-- Morgan (Logging)
+### 📝 Examples
+- **useState**: \`const [isOpen, setIsOpen] = useState(false);\` (Remembers whether a modal is open or closed).
+- **useEffect**: \`useEffect(() => { fetchUserData(); }, []);\` (Runs the fetch function exactly once when the page loads).
+- **useContext**: \`const theme = useContext(ThemeContext);\` (Grabs the global dark/light mode setting without passing props down).
 
-## Common Interview Questions
-1. **What is the Event Loop?** The mechanism that allows Node.js to perform non-blocking I/O operations.
-2. **What is JWT?** JSON Web Token — a secure way to transmit information between parties as a JSON object.
+### ⚙️ Real Workings (Industry Application)
+Hooks are the industry standard for building user interfaces. In applications like Netflix or Spotify, \`useState\` tracks what you're currently typing in the search bar. \`useEffect\` detects when you stop typing and automatically sends an API request to fetch movies/songs, dynamically rendering the UI as soon as the data arrives.`,
 
-## Pro Tips
-- Use 'express-async-handler' to handle promise errors cleanly.
-- Always validate request bodies using libraries like Joi or Zod.`,
-    'MongoDB/Mongoose': `## Overview
-MongoDB is a NoSQL database that stores data in JSON-like documents, while Mongoose provides a schema-based solution for modeling your application data.
+    'Node.js/Express': `## Node.js/Express
 
-## Core Concepts
-- **Collections & Documents**: Equivalent to Tables and Rows in SQL.
-- **Schemas**: Defining the structure of your data in Mongoose.
-- **CRUD Operations**: Create, Read, Update, and Delete data using Mongoose methods like .find(), .create(), .save().
-- **Relationships**: Using 'refs' and '.populate()' to link documents (like User and Post).
+### 📖 Definition
+Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that executes JavaScript code outside a web browser. Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
-## Key Tools & Technologies
-- MongoDB Atlas (Cloud DB)
-- Compass (GUI for MongoDB)
+### 💡 Meaning (In Simple Terms)
+Node.js lets you use JavaScript—normally only used for frontend websites—to build powerful backend servers. Express is a helper tool (framework) built on top of Node.js that makes it incredibly easy to set up routes (like \`/login\` or \`/api/users\`) and handle data securely.
 
-## Common Interview Questions
-1. **SQL vs NoSQL?** SQL is structured and relational; NoSQL is flexible and document-based.
-2. **What is an Index?** A data structure that improves the speed of data retrieval operations.
+### 📝 Examples
+- **Route Handling**: \`app.get('/users', (req, res) => res.send('User List'))\`
+- **Middleware**: Running a security check before allowing a user to see a page: \`app.use('/admin', verifyToken, adminRouter);\`
 
-## Pro Tips
-- Use Mongoose Middlewares (pre/post save) for hashing passwords.
-- Always use lean() in queries if you only need the data (better performance).`
+### ⚙️ Real Workings (Industry Application)
+Companies like Uber and PayPal use Node.js and Express to handle millions of concurrent connections. When you request an Uber, the mobile app sends an HTTP POST request to an Express API endpoint. Express processes the request, connects to the database via Node.js, finds the nearest driver, and sends the response back to your phone in milliseconds—all using a highly efficient, non-blocking Event Loop.`,
+
+    'MongoDB/Mongoose': `## MongoDB/Mongoose
+
+### 📖 Definition
+MongoDB is a source-available cross-platform document-oriented database program, classified as a NoSQL database system, using JSON-like documents. Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.
+
+### 💡 Meaning (In Simple Terms)
+Instead of storing data in rigid, spreadsheet-like tables (SQL), MongoDB stores data as flexible documents (like folders full of text files). Mongoose is the translator that sits between your Node.js code and your MongoDB database, helping you enforce rules (like "email is required" or "age must be a number").
+
+### 📝 Examples
+- **Document Structure**: \`{ name: "Alice", age: 25, hobbies: ["Reading", "Coding"] }\`
+- **Mongoose Schema**: \`const UserSchema = new Schema({ email: { type: String, required: true } });\`
+- **Data Query**: \`const users = await User.find({ age: { $gt: 18 } });\` (Finds all users older than 18).
+
+### ⚙️ Real Workings (Industry Application)
+Startups and large-scale applications heavily favor MongoDB for its flexibility. In an e-commerce app, a product might have different attributes—a laptop has RAM and CPU, while a t-shirt has Size and Color. Because MongoDB is schema-less, it stores these vastly different product types seamlessly in the same collection. Mongoose ensures that despite the flexibility, bad data (like text in a price field) is rejected before saving.`
   },
   'Graphic Design': {
-    'Color Theory': `## Overview
-Color theory is the science and art of using color to communicate messages and create visual impact.
+    'Color Theory': `## Color Theory
 
-## Core Concepts
-- **Color Wheel**: Primary, secondary, and tertiary colors.
-- **Color Harmonies**: Monochromatic, Analogous, Complementary, and Triadic.
-- **Psychology**: Blue for trust, Red for urgency, Yellow for optimism.
-- **RGB vs CMYK**: RGB is for digital screens; CMYK is for print materials.
+### 📖 Definition
+Color theory is both the science and art of using color. It explains how humans perceive color; the visual effects of how colors mix, match or contrast with each other; and the messages colors communicate.
 
-## Key Tools & Technologies
-- Adobe Color
-- Coolors.co
-- Pantone Matching System (PMS)
+### 💡 Meaning (In Simple Terms)
+Color theory gives you the rules for combining colors so they look great together instead of clashing. It also tells you what emotions certain colors trigger—like how red makes people feel urgency, while blue makes them feel trust.
 
-## Common Interview Questions
-1. **What is a Complementary color scheme?** Colors opposite each other on the wheel, creating high contrast.
-2. **Difference between Hue, Saturation, and Value?** Hue is the color; Saturation is intensity; Value is brightness.
+### 📝 Examples
+- **Complementary Colors**: Using Blue and Orange together to create high, eye-catching contrast (like movie posters).
+- **Analogous Colors**: Using Green, Blue-Green, and Blue for a harmonious, calming nature aesthetic.
+- **Monochromatic**: Using dark red, medium red, and light pink for a clean, unified brand identity.
 
-## Pro Tips
-- Use the 60-30-10 rule for balanced color distribution in layouts.
-- Always check color contrast for accessibility (WCAG standards).`,
-    'Typography Rules': `## Overview
-Typography is the art of arranging type to make written language legible, readable, and appealing.
+### ⚙️ Real Workings (Industry Application)
+In the corporate world, banks (like Chase or Citi) heavily use Blue because color psychology proves it instills trust, security, and stability. Fast-food chains (like McDonald's or Wendy's) use Red and Yellow because these colors stimulate appetite and urgency, encouraging fast customer turnover. Designers use the 60-30-10 rule (60% primary color, 30% secondary, 10% accent) to perfectly balance UI layouts.`,
 
-## Core Concepts
-- **Serif vs Sans Serif**: Serif has "feet" (classic/trust); Sans Serif is clean (modern/tech).
-- **Hierarchy**: Using size, weight, and color to guide the reader's eye.
-- **Leading, Kerning, Tracking**: Spacing between lines, letters, and blocks of text.
-- **Pairing**: Combining a bold heading font with a simple body font.
+    'Typography Rules': `## Typography Rules
 
-## Key Tools & Technologies
-- Google Fonts
-- Adobe Fonts
-- FontPair.co
+### 📖 Definition
+Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. The arrangement involves selecting typefaces, point sizes, line lengths, line-spacing, and letter-spacing.
 
-## Common Interview Questions
-1. **What is a Typeface vs a Font?** Typeface is the design (e.g., Arial); Font is the specific file (e.g., Arial Bold 12pt).
-2. **How many fonts should you use?** Generally, limit to 2 or 3 per project for consistency.
+### 💡 Meaning (In Simple Terms)
+Typography isn't just picking a pretty font. It's the mathematical and visual structuring of text to ensure that a reader's eye naturally flows from the headline down to the body text without getting tired, confused, or bored.
 
-## Pro Tips
-- Never stretch or squash fonts manually; use the correct weights.
-- Body text should usually be between 16px and 18px for web readability.`,
-    'UI Principles': `## Overview
-User Interface (UI) design focuses on the look and layout of digital products to ensure they are beautiful and functional.
+### 📝 Examples
+- **Serif vs. Sans-Serif**: Using a traditional Serif font (like Times New Roman) for a printed newspaper, but a clean Sans-Serif font (like Inter) for a modern mobile app.
+- **Hierarchy**: Making the main title 32px and bold, the sub-title 20px and medium, and the paragraph text 16px and regular.
+- **Line-Height (Leading)**: Setting the space between lines to 150% of the font size to make paragraphs easy to read.
 
-## Core Concepts
-- **Visual Hierarchy**: Guiding the user to the most important element first.
-- **Consistency**: Using uniform buttons, colors, and spacing throughout the app.
-- **Grid Systems**: Aligning elements to a structured layout (e.g., 8pt grid).
-- **White Space**: Giving elements "room to breathe" to reduce cognitive load.
+### ⚙️ Real Workings (Industry Application)
+Digital product designers rely on strict typography systems. In an app like Apple News, typography is meticulously calculated. Headlines are bold to grab attention, while the body text is constrained to roughly 60-70 characters per line. If lines are too long, the reader's eye struggles to find the start of the next line; if they are too short, the rhythm is broken. Proper typography drives user retention.`,
 
-## Key Tools & Technologies
-- Figma
-- Adobe XD
-- Sketch
+    'UI Principles': `## UI Principles
 
-## Common Interview Questions
-1. **What is the 8pt Grid system?** Using multiples of 8 for spacing and sizing to ensure scalability.
-2. **Difference between UI and UX?** UI is how it looks; UX is how it feels and works.
+### 📖 Definition
+User Interface (UI) principles are a set of fundamental design rules and guidelines used to construct intuitive, accessible, and aesthetically pleasing digital interfaces. Key principles include alignment, visual hierarchy, consistency, and whitespace.
 
-## Pro Tips
-- Master "Auto-Layout" in Figma to create responsive components.
-- Design for the "Thumb Zone" on mobile devices.`
+### 💡 Meaning (In Simple Terms)
+UI principles are the architectural rules of design. They dictate exactly where a button should go, how much empty space should surround it, and why it should look identical to other buttons on the site. Good UI means the user never has to "think" about how to use your app.
+
+### 📝 Examples
+- **Whitespace (Negative Space)**: Adding 40 pixels of empty space around a pricing card to make it look premium and easy to focus on.
+- **Alignment**: Using an 8-point grid system to ensure every icon, button, and image aligns perfectly to an invisible mathematical grid.
+- **Affordance**: Giving a button a slight drop-shadow and a contrasting color so the user instantly knows it can be clicked.
+
+### ⚙️ Real Workings (Industry Application)
+In industry-grade design teams at Google or Meta, UI principles are enforced through Design Systems (like Material Design). They strictly use consistent padding (e.g., multiples of 8px) and robust visual hierarchy so that whether a user is looking at Google Mail, Google Drive, or Google Calendar, the interface feels completely familiar. Proper UI drastically reduces customer support tickets because the product is self-explanatory.`
   },
   'Digital Marketing & SEO': {
-    'SEO On-Page': `## Overview
-On-page SEO is the practice of optimizing individual web pages to rank higher and earn more relevant traffic.
+    'SEO On-Page': `## SEO On-Page
 
-## Core Concepts
-- **Title Tags & Meta Descriptions**: The first thing users see in search results.
-- **H1-H6 Hierarchy**: Using headings to structure content for Google bots.
-- **Keyword Placement**: Including your primary keyword in the first 100 words.
-- **Internal Linking**: Linking to other pages on your site to share "link juice."
+### 📖 Definition
+On-page SEO (Search Engine Optimization) is the practice of optimizing web page content and HTML source code to rank higher on search engines and earn more relevant traffic.
 
-## Key Tools & Technologies
-- Yoast SEO (WordPress)
-- Surfer SEO
-- Google Search Console
+### 💡 Meaning (In Simple Terms)
+It's the process of tweaking everything actually *on* your website—like the text, the images, the title, and the invisible metadata—so that Google perfectly understands what your page is about and decides it is the best answer to a user's search query.
 
-## Common Interview Questions
-1. **What is a Meta Description?** A summary of a page that appears under the title in search results.
-2. **What are Alt Tags?** Descriptions for images that help search engines understand visual content.
+### 📝 Examples
+- **Title Tags**: Optimizing the hidden browser tab title from "Home" to "Best Running Shoes for Men | Nike".
+- **H1 Tags**: Ensuring there is only one \`<h1>\` header per page, and it contains your primary keyword.
+- **Image Alt-Text**: Describing an image as "red-running-shoes-side-profile" instead of leaving the file named "IMG_9823.jpg".
 
-## Pro Tips
-- Write for humans first, search engines second.
-- Use "LSI Keywords" (related terms) to build topical authority.`,
-    'Keyword Research': `## Overview
-Keyword research is the process of finding and analyzing search terms that people enter into search engines.
+### ⚙️ Real Workings (Industry Application)
+When a digital marketing agency takes over a client's website, the first step is an On-Page SEO audit. They map out the site architecture, rewrite meta descriptions to improve the Click-Through Rate (CTR) from the search results page, and structure long articles with \`<h2>\` and \`<h3>\` tags. This logical structure allows Google's indexing bots to parse the site rapidly, often resulting in massive traffic spikes without spending a dime on ads.`,
 
-## Core Concepts
-- **Search Intent**: Why is the user searching? (Informational, Navigational, Transactional).
-- **Long-Tail Keywords**: Longer, more specific phrases that are easier to rank for.
-- **Keyword Difficulty (KD)**: A metric showing how hard it is to rank for a term.
-- **Search Volume**: How many people are searching for a term per month.
+    'Keyword Research': `## Keyword Research
 
-## Key Tools & Technologies
-- Ahrefs / SEMrush
-- Google Keyword Planner
-- AnswerThePublic
+### 📖 Definition
+Keyword research is the process of discovering, analyzing, and selecting the search terms that people enter into search engines with the goal of using that data for a specific purpose, often for Search Engine Optimization (SEO) or general marketing.
 
-## Common Interview Questions
-1. **What is Keyword Stuffing?** Overusing keywords in a way that feels unnatural (and gets you penalized).
-2. **Difference between head terms and long-tail?** Head terms are broad (e.g., "shoes"); long-tail is specific (e.g., "red running shoes for flat feet").
+### 💡 Meaning (In Simple Terms)
+It is the detective work of finding out exactly what phrases your potential customers are typing into Google. You figure out how many people search for a phrase, how hard it will be to rank for it, and what the user's *actual* intention is when they search it.
 
-## Pro Tips
-- Look for keywords with high volume but low competition ("low-hanging fruit").
-- Analyze your competitors' top-ranking pages for keyword ideas.`
+### 📝 Examples
+- **Short-Tail Keyword**: "Shoes" (Massive volume, impossible to rank for, low conversion rate).
+- **Long-Tail Keyword**: "Best running shoes for flat feet 2024" (Lower volume, very easy to rank for, extremely high conversion rate).
+- **Search Intent**: Recognizing that someone searching "buy nike pegasus" wants to purchase (Transactional), while someone searching "nike pegasus vs adidas ultraboost" wants a review (Informational).
+
+### ⚙️ Real Workings (Industry Application)
+Before a company writes a single blog post, an SEO specialist uses tools like Ahrefs or SEMrush to analyze keyword data. If a software company wants to sell CRM software, they won't try to rank for "CRM" (because Salesforce dominates it). Instead, they will research and find a keyword like "best CRM for real estate agents," check that it has low competition (Keyword Difficulty), and write a highly targeted landing page to capture that specific niche traffic.`,
+
+    'Content Strategy': `## Content Strategy
+
+### 📖 Definition
+Content strategy refers to the management of pretty much any tangible media that you create and own: written, visual, downloadable. It is the piece of your marketing plan that continuously demonstrates who you are and the expertise you bring to your industry.
+
+### 💡 Meaning (In Simple Terms)
+It's a master plan for what content you will create, who you are creating it for, what platforms you will post it on, and how it guides a stranger into becoming a paying customer. It stops you from posting random blogs and hoping for the best.
+
+### 📝 Examples
+- **Top of Funnel (Awareness)**: Creating entertaining, educational YouTube shorts to grab attention.
+- **Middle of Funnel (Interest)**: Writing an in-depth, high-value PDF guide that people can download in exchange for their email address.
+- **Hub and Spoke Model**: Writing one massive "Ultimate Guide to Dog Training" (Hub), and linking it to 20 smaller articles like "How to Stop a Dog from Barking" (Spokes) to dominate SEO.
+
+### ⚙️ Real Workings (Industry Application)
+Major SaaS companies (like HubSpot or Mailchimp) build multi-million dollar empires purely on content strategy. They map their content to the "Buyer's Journey". First, they capture organic traffic through helpful SEO blog posts. Inside the blog post, they offer a free template in exchange for an email. Once the email is captured, they use an automated email marketing sequence to educate the prospect further, ultimately pitching their paid software subscription.`
   }
 };
-
 // ─────────────────────────────────────────────
 // MASTERCLASS NOTES COMPONENT (Manual Replacment for AI)
 // ─────────────────────────────────────────────
@@ -727,12 +681,18 @@ const ProjectSection = ({ domain, domainColor, user }) => {
           return (
             <motion.div
               key={step.step}
-              className="border rounded-2xl overflow-hidden"
-              style={{ borderColor: isDone ? domainColor + '44' : isActive ? '#ffffff22' : '#ffffff0f' }}
+              className="border rounded-2xl overflow-hidden relative backdrop-blur-xl shadow-lg transition-all"
+              style={{
+                borderColor: isDone ? domainColor + '44' : isActive ? '#ffffff22' : '#ffffff0f',
+                marginTop: idx === 0 ? 0 : '-16px',
+                zIndex: 10 - idx,
+                background: isDone ? '#000000cc' : isActive ? '#1e293bcc' : '#0f172acc',
+                boxShadow: isActive ? `0 -10px 40px -10px ${domainColor}22` : '0 -4px 10px -5px rgba(0,0,0,0.5)'
+              }}
             >
               <button
                 onClick={() => setActiveStep(isActive ? -1 : idx)}
-                className="w-full flex items-center gap-4 p-4 text-left"
+                className="w-full flex items-center gap-4 p-5 text-left"
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0"
@@ -864,6 +824,28 @@ const SkillTestSection = ({ domain, domainColor, user, updateUser }) => {
     };
     document.addEventListener('visibilitychange', onVisibility);
     return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, [phase]);
+
+  // Fullscreen & Anti-Cheat (Copy, Paste, Context Menu)
+  useEffect(() => {
+    if (phase !== 'test') return;
+    
+    // Request fullscreen
+    const docEl = document.documentElement;
+    if (docEl.requestFullscreen) docEl.requestFullscreen().catch(() => {});
+    
+    // Prevent right-click and copy-paste
+    const preventAction = (e) => e.preventDefault();
+    document.addEventListener('contextmenu', preventAction);
+    document.addEventListener('copy', preventAction);
+    document.addEventListener('paste', preventAction);
+    
+    return () => {
+      if (document.exitFullscreen && document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      document.removeEventListener('contextmenu', preventAction);
+      document.removeEventListener('copy', preventAction);
+      document.removeEventListener('paste', preventAction);
+    };
   }, [phase]);
 
   // Timer
@@ -1178,7 +1160,7 @@ const LearningPage = () => {
   const [domainSelected, setDomainSelected] = useState(!!user?.activeLearningDomain);
   const [selectedDomain, setSelectedDomain] = useState(user?.activeLearningDomain || null);
   const [activeTab, setActiveTab] = useState('roadmap');
-  const [videoLang, setVideoLang] = useState('English');
+  const [videoLang, setVideoLang] = useState('All');
   const [playerSrc, setPlayerSrc] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -1202,7 +1184,7 @@ const LearningPage = () => {
   const TABS = [
     { id: 'roadmap', label: 'Roadmap', icon: MapIcon },
     { id: 'videos', label: 'Videos', icon: VideoCameraIcon },
-    { id: 'notes', label: 'AI Notes', icon: SparklesIcon },
+    { id: 'notes', label: 'Custom Notes', icon: OutlineDocumentTextIcon },
     { id: 'project', label: 'Project', icon: CodeBracketIcon },
     { id: 'test', label: 'Skill Test', icon: ShieldCheckIcon },
   ];
@@ -1251,7 +1233,7 @@ const LearningPage = () => {
                     <>
                       <p className="text-gray-500 text-sm mb-5 italic">{data.tagline}</p>
                       <div className="flex flex-wrap gap-1.5">
-                        {['Roadmap', 'Videos', 'AI Notes', 'Project', 'Test'].map((f) => (
+                        {['Roadmap', 'Videos', 'Custom Notes', 'Project', 'Test'].map((f) => (
                           <span key={f} className="text-[9px] font-black uppercase px-2 py-0.5 rounded-lg"
                             style={{ background: data.color + '18', color: data.color }}>
                             {f}
@@ -1405,7 +1387,7 @@ const LearningPage = () => {
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-black text-white">Curated Videos</h2>
                     <div className="flex gap-1 p-1 bg-white/5 rounded-xl border border-white/10">
-                      {['Telugu', 'English', 'Hindi'].map((lang) => (
+                      {['All', 'Telugu', 'English', 'Hindi'].map((lang) => (
                         <button
                           key={lang}
                           onClick={() => setVideoLang(lang)}
@@ -1415,7 +1397,7 @@ const LearningPage = () => {
                             color: videoLang === lang ? domainColor : '#6b7280',
                           }}
                         >
-                          {lang === 'Telugu' ? '🇮🇳' : lang === 'Hindi' ? '🟠' : '🌐'} {lang}
+                          {lang === 'All' ? '🌍' : lang === 'Telugu' ? '🇮🇳' : lang === 'Hindi' ? '🟠' : '🌐'} {lang}
                         </button>
                       ))}
                     </div>
@@ -1428,7 +1410,10 @@ const LearningPage = () => {
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(domainData.videos?.[videoLang] || []).map((video) => {
+                    {(videoLang === 'All' 
+                        ? Object.values(domainData.videos || {}).flat() 
+                        : domainData.videos?.[videoLang] || []
+                    ).map((video) => {
                       const isDone = user?.completedVideos?.includes(video.id);
                       return (
                         <motion.div
