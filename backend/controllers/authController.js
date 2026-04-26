@@ -194,7 +194,7 @@ export const setActiveDomain = asyncHandler(async (req, res) => {
   // If already has an active domain and not completed, don't allow change
   const hasBadge = user.badges?.some(b => b.role === user.activeLearningDomain);
   
-  if (user.activeLearningDomain && !hasBadge && user.activeLearningDomain !== domain) {
+  if (user.role !== 'admin' && user.activeLearningDomain && !hasBadge && user.activeLearningDomain !== domain) {
     res.status(400);
     throw new Error(`You must complete your current specialization (${user.activeLearningDomain}) before switching.`);
   }
